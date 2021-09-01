@@ -1,0 +1,19 @@
+html {
+	font-size: 62.5%;
+}
+h1 {
+	font-size: 1rem;
+}
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-shadow: inherit;
+}
+
+@import './layout';
+@import './colors';
+@import './headernavbar.scss';
+@import './auth/signin.scss';
+@import './auth/signup.scss';

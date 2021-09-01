@@ -1,0 +1,18 @@
+.header {
+	display: grid;
+	justify-content: center;
+	grid-column: 1/-1;
+	background-color: $main-blue;
+
+	&__img {
+		height: 35px;
+		width: 70px;
+	}
+}
+
+.navbar {
+	grid-column: 1/-1;
+	background-color: $main-blue;
+	box-shadow: 0 2px 6px 0
+		rgba(0, 0, 0, 0.2);
+}
