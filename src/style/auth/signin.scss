@@ -2,3 +2,11 @@
 	grid-row: content-s/content-e;
 	grid-column: s/e;
 }
+
+.navbar {
+	grid-column: 1/-1;
+	height: 20px;
+	background-color: $main-blue;
+	box-shadow: 0 2px 6px 0
+		rgba(0, 0, 0, 0.2);
+}
