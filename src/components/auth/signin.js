@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import SignInForm from './signinForm';
 import PageTitle from '../pageTitle';
-import Bottom from '../bottom';
+import Footer from '../footer'
+
 
 
 class SignIn extends Component {
@@ -16,8 +17,9 @@ class SignIn extends Component {
                 <div className='signin-box'>
                     <PageTitle className='signin-box__page-title' title='Login' />
                     <SignInForm onSubmit={this.onSubmit} className='signin__form' />
+                    <Footer className='signin-box__footer' />
                 </div>
-                <Bottom />
+
             </div>
         )
     }

@@ -2,8 +2,9 @@ html {
 	font-size: 62.5%;
 }
 body {
-	font-family: 'Roboto';
-	color: #808080;
+	font-family: 'Glory',
+		sans-serif;
+	color: rgba(0, 0, 0, 0.8);
 }
 h1 {
 	font-size: 1rem;
@@ -18,8 +19,11 @@ h1 {
 
 @import './layout';
 @import './colors';
+@import './mixins.scss';
 @import './headernavbar.scss';
 @import './auth/signin.scss';
 @import './auth/signup.scss';
 @import './page-title.scss';
 @import './formfields.scss';
+@import './details.scss';
+@import './footer.scss';

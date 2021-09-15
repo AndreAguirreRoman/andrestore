@@ -11,10 +11,11 @@
 	}
 	&__input {
 		box-sizing: border-box;
+		font-family: 'Glory';
 		height: 39px;
-		width: 426px;
+		width: 440px;
 		border: 1px solid #e6e6e6;
-		border-radius: 20px;
+		border-radius: 5px;
 		color: #333333;
 		font-size: 18px;
 	}
@@ -23,9 +24,20 @@
 .form-button {
 	&__button {
 		height: 38px;
-		width: 243px;
-		border-radius: 20px;
-		background-color: #00cb79;
+		width: 280px;
+		border-radius: 5px;
+		background-color: $light-blue;
+		border: none;
+		font-family: 'Glory';
+		transition: all 0.4s
+			ease-out;
+		cursor: pointer;
+		&:hover {
+			background-color: $main-blue;
+		}
+		&:active {
+			background-color: red;
+		}
 
 		font-size: 16px;
 		color: white;

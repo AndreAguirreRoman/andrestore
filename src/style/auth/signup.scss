@@ -1,4 +1,84 @@
 .signup {
 	grid-row: content-s/content-e;
 	grid-column: s/e;
+
+	&__form {
+		display: grid;
+		grid-template-rows:
+			[email-s] 64px [email-e password-s] 64px [password-e confirm-s] 64px[confirm-e info-s] 20px[info-e]minmax(
+				20px,
+				50px
+			)
+			[line-s] 15px [line-e login-s] 38px [login-e signup-s] 10px[signup-e footer-s] 200px [footer-e];
+		grid-template-columns:
+			minmax(20px, 250px)
+			[s]1fr [e] minmax(
+				20px,
+				250px
+			);
+	}
+}
+.signup-box {
+	&__page-title {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.signup-form {
+	& > * {
+		grid-column: 1/-1;
+	}
+	&__email {
+		grid-row: email-s/email-e;
+		grid-column: s/e;
+	}
+	&__password {
+		margin-top: 15px;
+		grid-row: password-s/password-e;
+		grid-column: s/e;
+	}
+	&__confirm {
+		margin-top: 15px;
+		grid-row: confirm-s/confirm-e;
+		grid-column: s/e;
+	}
+	&__info {
+		font-size: 12px;
+		margin-top: 20px;
+		grid-row: info-s/info-e;
+		grid-column: s/e;
+
+		&-agreement-link {
+			@include under-links;
+		}
+		&-password-link {
+			@include under-links;
+		}
+	}
+
+	&__create {
+		display: flex;
+		justify-self: center;
+		grid-row: login-s/login-e;
+		grid-column: s/e;
+	}
+
+	&__signin {
+		font-size: 13px;
+		justify-self: center;
+		padding-top: 20px;
+		grid-row: signup-s/signup-e;
+		grid-column: s/e;
+		color: #333;
+
+		&-link {
+			@include under-links;
+		}
+	}
+	// &__details {
+	// 	grid-row: 1/-1;
+	// 	justify-self: end;
+	// 	align-self: start;
+	// }
 }

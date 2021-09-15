@@ -1,0 +1,22 @@
+.footer {
+	&__links {
+		width: 300px;
+		display: flex;
+		padding-top: 5px;
+
+		&-link {
+			cursor: pointer;
+			color: black;
+			margin-right: 10px;
+			margin: black solid 1px;
+		}
+	}
+	&__line {
+		box-shadow: 0 2px 6px 0
+			rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+	}
+	&__copyright {
+		padding-top: 5px;
+	}
+}

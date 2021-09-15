@@ -1,0 +1,21 @@
+.details {
+	display: grid;
+	row-gap: 10px;
+
+	&__title {
+		font-size: 14px;
+		font-weight: 600;
+		padding-bottom: 7px;
+		border-bottom: 1px solid
+			black;
+	}
+
+	&__links {
+		font-size: 14px;
+		display: grid;
+		row-gap: 10px;
+		& > * {
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+@mixin under-links {
+	cursor: pointer;
+	color: $main-blue;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:active {
+		color: $light-blue;
+	}
+}

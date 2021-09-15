@@ -9,30 +9,71 @@
 				20px,
 				50px
 			)
-			[line-s] 2px [line-e login-s] 38px [login-e];
-		grid-template-columns: 1fr;
+			[line-s] 15px [line-e login-s] 38px [login-e signup-s] 10px[signup-e footer-s] 200px [footer-e];
+		grid-template-columns:
+			minmax(20px, 250px)
+			[s]1fr [e] minmax(
+				20px,
+				250px
+			);
+	}
+}
+.signin-box {
+	&__page-title {
+		display: flex;
+		justify-content: center;
 	}
 }
 
 .signin-form {
+	& > * {
+		grid-column: 1/-1;
+	}
 	&__email {
 		grid-row: email-s/email-e;
+		grid-column: s/e;
 	}
 	&__password {
 		margin-top: 15px;
 		grid-row: password-s/password-e;
+		grid-column: s/e;
 	}
 	&__info {
-		margin-left: 5px;
-		margin-top: 15px;
+		font-size: 12px;
+		margin-top: 20px;
 		grid-row: info-s/info-e;
+		grid-column: s/e;
+
+		&-agreement-link {
+			@include under-links;
+		}
+		&-password-link {
+			@include under-links;
+		}
 	}
 
-	&__line {
-		border-top: 1px solid #ccc;
-		grid-row: line-s/line-e;
-	}
 	&__login {
+		display: flex;
+		justify-self: center;
 		grid-row: login-s/login-e;
+		grid-column: s/e;
 	}
+
+	&__signup {
+		font-size: 13px;
+		justify-self: center;
+		padding-top: 20px;
+		grid-row: signup-s/signup-e;
+		grid-column: s/e;
+		color: #333;
+
+		&-link {
+			@include under-links;
+		}
+	}
+	// &__details {
+	// 	grid-row: 1/-1;
+	// 	justify-self: end;
+	// 	align-self: start;
+	// }
 }
