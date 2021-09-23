@@ -5,11 +5,11 @@
 	&__form {
 		display: grid;
 		grid-template-rows:
-			[email-s] 64px [email-e password-s] 64px [password-e confirm-s] 64px[confirm-e info-s] 20px[info-e]minmax(
-				20px,
-				50px
+			[name-s] 72px [name-e email-s] 64px [email-e password-s] 64px [password-e rules-s] 32px [rules-e info-s] 75px[info-e login-s] 30px [login-e signup-s] 24px[signup-e footer-s] minmax(
+				80px,
+				100px
 			)
-			[line-s] 15px [line-e login-s] 38px [login-e signup-s] 10px[signup-e footer-s] 200px [footer-e];
+			[footer-e];
 		grid-template-columns:
 			minmax(20px, 250px)
 			[s]1fr [e] minmax(
@@ -29,23 +29,58 @@
 	& > * {
 		grid-column: 1/-1;
 	}
+	&__names {
+		display: flex;
+		align-content: center;
+		grid-row: name-s/name-e;
+		grid-column: s/e;
+
+		&-first input,
+		&-last input {
+			width: 216px;
+		}
+
+		&-first {
+			padding-right: 8px;
+		}
+	}
+
 	&__email {
 		grid-row: email-s/email-e;
 		grid-column: s/e;
 	}
 	&__password {
+		display: grid;
 		margin-top: 15px;
 		grid-row: password-s/password-e;
 		grid-column: s/e;
+
+		&-icon {
+			grid-row: password-s/password-e;
+			grid-column: s/e;
+			position: absolute;
+			margin-top: 35px;
+			margin-right: 15px;
+			justify-self: flex-end;
+			font-size: 1.5em;
+			cursor: pointer;
+		}
 	}
-	&__confirm {
+
+	&__rules {
+		display: flex;
+		align-self: center;
 		margin-top: 15px;
-		grid-row: confirm-s/confirm-e;
+		padding-left: 5px;
+		&-text {
+			padding-left: 5px;
+		}
+		grid-row: rules-s/rules-e;
 		grid-column: s/e;
 	}
 	&__info {
 		font-size: 12px;
-		margin-top: 20px;
+		margin-top: 5px;
 		grid-row: info-s/info-e;
 		grid-column: s/e;
 

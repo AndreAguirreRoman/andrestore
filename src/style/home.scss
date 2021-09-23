@@ -1,0 +1,26 @@
+.home {
+	display: grid;
+	grid-template-rows: [carousel-s] 306px [carousel-e product-s] 1fr [product-e];
+	grid-template-columns:
+		[extra-s] minmax(
+			20px,
+			250px
+		)
+		[s] 1fr[e] minmax(
+			20px,
+			250px
+		)
+		[extra-e];
+	grid-row: content-s/content-e;
+	grid-column: extra-s/extra-e;
+
+	&__carousel {
+		grid-row: carousel-s/carousel-e;
+		grid-column: extra-s/extra-e;
+	}
+	&__products {
+		grid-row: product-s/product-e;
+		grid-column: s/e;
+		padding-top: 40px;
+	}
+}

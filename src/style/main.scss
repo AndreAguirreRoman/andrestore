@@ -1,5 +1,7 @@
 html {
 	font-size: 62.5%;
+
+	background-color: #ebebeb;
 }
 body {
 	font-family: 'Glory',
@@ -25,5 +27,8 @@ h1 {
 @import './auth/signup.scss';
 @import './page-title.scss';
 @import './formfields.scss';
+@import './home.scss';
+@import './carousel.scss';
+@import './payment/paymentInformation.scss';
 @import './details.scss';
 @import './footer.scss';

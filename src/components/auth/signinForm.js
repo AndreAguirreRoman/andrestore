@@ -8,24 +8,6 @@ import { FormInput, FormButton } from '../formFields';
 class SignInForm extends Component {
 
     render() {
-        const { onClick } = () => console.log('doneit')
-        const links = [
-            {
-                _id: 0,
-                title: 'Not registered? Create account',
-                onClick: () => history.push('/signup')
-            },
-            {
-                _id: 1,
-                title: 'Forgot my email',
-                onClick: () => console.log('sup boi')
-            },
-            {
-                _id: 2,
-                title: 'Forgot my password',
-                onClick: () => console.log('sup boi')
-            },
-        ]
 
         const { className, handleSubmit } = this.props;
         return (
