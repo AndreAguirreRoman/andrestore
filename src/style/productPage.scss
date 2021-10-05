@@ -1,0 +1,14 @@
+.product-render {
+	grid-row: content-s/content-e;
+	grid-column: extra-s/extra-e;
+	&__wrapper {
+		display: grid;
+		grid-template-rows: [heading-s] 30px[heading-e render-s] 1fr[render-e footer-s] 10px[footer-e];
+		&-gallery {
+			grid-row: render-s/render-e;
+		}
+		&-information {
+			grid-row: render-s/render-e;
+		}
+	}
+}

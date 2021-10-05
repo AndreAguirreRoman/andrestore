@@ -4,11 +4,11 @@
 	grid-template-columns:
 		[extra-s] minmax(
 			20px,
-			250px
+			200px
 		)
 		[s] 1fr[e] minmax(
 			20px,
-			250px
+			200px
 		)
 		[extra-e];
 	grid-row: content-s/content-e;

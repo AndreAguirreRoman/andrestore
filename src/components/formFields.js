@@ -13,6 +13,76 @@ export class FormInput extends Component {
     }
 }
 
+export class FormSelectCat extends Component {
+    render() {
+        const { className, title } = this.props;
+        return (
+            <div className={`${className} form-input`}>
+                <label className='form-input__label'>{title}</label>
+                <select className='form-input__input'>
+                    <option value={null}>Select Category</option>
+                    <option value="Phones">Phones</option>
+                    <option value="Camera">Camera</option>
+                    <option value="Video-Games">Video Games</option>
+                    <option value="TV">TV</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Headphones">Headphones</option>
+                </select>
+            </div>
+        )
+    }
+}
+
+// export class FormSelectSub extends Component {
+//     render() {
+//         const { className, title } = this.props;
+//         return (
+//             <div className={`${className} form-input`}>
+//                 <label className='form-input__label'>{title}</label>
+//                 <select className='form-input__input'>
+//                     <option value={null}>Select Sub-category</option>
+//                     <option value="Smartphone">Smartphone</option>
+//                     <option value="Cellphone">Cellphone</option>
+//                     <option value="Smartcamera">SmartCamera</option>
+//                     <option value="Console">Console</option>
+//                     <option value="Controles">Controles</option>
+//                     <option value="SmartTv">Smart TV</option>
+//                     <option value="Laptop">Laptop</option>
+//                     <option value="Desktop">Desktop</option>
+//                     <option value="Wireless">Wireless</option>
+//                     <option value="Studio">Studio</option>
+//                 </select>
+//             </div>
+//         )
+//     }
+// }
+
+export class FormSelectSub extends Component {
+    render() {
+        const { className, title } = this.props;
+        return (
+            <div className={`${className} form-input`}>
+                <label className='form-input__label'>{title}</label>
+                <select className='form-input__input'>
+                    <option value={null}>Select Sub-category</option>
+                    <option value="Smartphone">Smartphone</option>
+                    <option value="Cellphone">Cellphone</option>
+                    <option value="Smartcamera">SmartCamera</option>
+                    <option value="Console">Console</option>
+                    <option value="Controles">Controles</option>
+                    <option value="SmartTv">Smart TV</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Wireless">Wireless</option>
+                    <option value="Studio">Studio</option>
+                </select>
+            </div>
+        )
+    }
+}
+
+
+
 export class FormButton extends Component {
     render() {
         const { className, title, type, onClick, input } = this.props;

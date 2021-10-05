@@ -22,6 +22,9 @@ import Layout from "./components/layout";
 import SignIn from './components/auth/signin';
 import SignUp from './components/auth/signup';
 import Home from "./components/home/home";
+import Products from "./components/uploaders/products";
+import User from "./components/uploaders/user";
+import ProductDetail from "./products/productDetail";
 
 function main() {
   ReactDOM.render(
@@ -32,6 +35,9 @@ function main() {
             <Route path='/' exact component={Home} />
             <Route path='/signin' exact component={SignIn} />
             <Route path='/signup' exact component={SignUp} />
+            <Route path='/signup/user' exact component={User} />
+            <Route path='/products/upload' exact component={Products} />
+            <Route exact path="/product/:slug" exact component={ProductDetail} />
           </Switch>
         </Layout>
       </Router>
