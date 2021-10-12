@@ -4,11 +4,14 @@
 	&__wrapper {
 		display: grid;
 		grid-template-rows: [heading-s] 30px[heading-e render-s] 1fr[render-e footer-s] 10px[footer-e];
+		grid-template-columns: 30px[images-s]1.5fr[images-e content-s]2fr[content-e payment-form-s] 1fr[payment-form-e]30px;
 		&-gallery {
 			grid-row: render-s/render-e;
+			grid-column: images-s/images-e;
 		}
 		&-information {
 			grid-row: render-s/render-e;
+			grid-column: content-s/content-e;
 		}
 	}
 }

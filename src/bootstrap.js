@@ -4,9 +4,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { Router, Switch, Route } from 'react-router-dom';
 
-
-
-
 import reducers from "./reducers";
 
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+
+
+
 class PaymentInformation extends Component {
 
 

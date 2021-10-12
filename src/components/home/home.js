@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CarouselPage from '../carousel/carousel';
 import PaymentInformation from './paymentInformation';
 import ProductItem from '../../products/productItem';
+import Footer from '../footer';
 
 import axios from 'axios';
 import PageTitle from '../pageTitle';
@@ -35,14 +36,59 @@ class Home extends Component {
     componentDidMount() {
         this.getProducts();
     }
+
+
     render() {
-        const products = this.state.productItems.map(productItem => {
-            return (
-                <div className='products-items'>
-                    <ProductItem key={productItem.product_id} productItem={productItem} />
-                </div>
-            )
-        })
+
+        const productsSmartphone = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Smartphone'))
+            .map(productItem => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    </div>
+                )
+            })
+        const productsCamera = this.state.productItems.filter((productItemCamera) => productItemCamera.product_category_name.includes('Smartcamera'))
+            .map(productItemCamera => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItemCamera.product_id} productItem={productItemCamera} />
+                    </div>
+                )
+            })
+        const productsTv = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('TV'))
+            .map(productItem => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    </div>
+                )
+            })
+        const productsComputer = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Computer'))
+            .map(productItem => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    </div>
+                )
+            })
+        const productsGames = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Video-Games'))
+            .map(productItem => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    </div>
+                )
+            })
+        const productsHeadphones = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Headphones'))
+            .map(productItem => {
+                return (
+                    <div className='products-items'>
+                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    </div>
+                )
+            })
+
         return (
             <div className='home'>
                 <div className='home__carousel'>
@@ -56,13 +102,22 @@ class Home extends Component {
                             <div className='home__products-main-wrapper'>
                                 <PageTitle className='home__products-main-wrapper-title' title={"Phones"} />
                                 <div className='home__products-main-wrapper-products'>
-                                    {products}
+                                    {productsSmartphone}
+                                </div>
+                                <PageTitle className='home__products-main-wrapper-title' title={"Cameras"} />
+                                <div className='home__products-main-wrapper-products'>
+                                    {productsCamera}
+                                    {/* {productsTv}
+                                    {productsComputer}
+                                    {productsGames}
+                                    {productsHeadphones} */}
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <Footer className='home__footer' />
             </div>
         )
     }

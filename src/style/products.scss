@@ -10,17 +10,36 @@
 		z-index: 1;
 		display: flex;
 		width: 1020px;
-		overflow: scroll;
+		overflow: hidden;
 
 		.products-box {
 			padding-right: 16px;
 			&__main {
+				overflow: hidden;
 				position: relative;
 				width: 191px;
+				height: 250px;
 				background-color: $off-white;
 
 				border-radius: 7px;
-				overflow: hidden;
+
+				&-item {
+					text-decoration: none;
+					color: $main-black;
+					// .products-image {
+					// }
+					.products-brand,
+					.products-price {
+						padding-left: 2px;
+					}
+					.products-brand {
+						font-size: 1.8rem;
+					}
+					.products-price {
+						font-size: 1.5rem;
+						align-self: end;
+					}
+				}
 			}
 		}
 	}

@@ -45,7 +45,7 @@ class ProductDetail extends Component {
     }
 
     render() {
-        const { product_brand, product_name } = this.state.productItem;
+        const { product_brand, product_name, product_description } = this.state.productItem;
         console.log("currentId", this.state.productId)
         console.log("state", this.state.productItem)
         return (
@@ -54,12 +54,14 @@ class ProductDetail extends Component {
 
 
                     <div className='product-render__wrapper-gallery'>
-                        <Gallery images={images} />
+                        <Gallery className={'product-render__wrapper-gallery-component'} images={images} />
                     </div>
 
                     <div className='product-render__wrapper-information'>
                         <h1>{product_brand}</h1>
                         <h2>{product_name}</h2>
+
+                        <p>{product_description}</p>
                     </div>
 
 

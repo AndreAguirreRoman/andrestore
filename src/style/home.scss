@@ -1,6 +1,6 @@
 .home {
 	display: grid;
-	grid-template-rows: [carousel-s] 306px [carousel-e product-s] 1fr [product-e];
+	grid-template-rows: [carousel-s] 306px [carousel-e product-s] 1fr [product-e footer-home-s] 40px[footer-home-e];
 	grid-template-columns:
 		[extra-s] minmax(
 			20px,
@@ -22,5 +22,10 @@
 		grid-row: product-s/product-e;
 		grid-column: s/e;
 		padding-top: 40px;
+	}
+	&__footer {
+		padding-top: 60px;
+		grid-row: footer-home-s/footer-home-e;
+		grid-column: s/e;
 	}
 }
