@@ -18,7 +18,7 @@ export default function (state = INITIAL_STATE, action) {
         case SET_NAVBAR_LINKS:
             return {
                 ...state,
-                headerLinks: action.payload
+                navbarLinks: action.payload
             }
         default: return state
     }
