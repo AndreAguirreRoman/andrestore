@@ -22,6 +22,7 @@ import Home from "./components/home/home";
 import Products from "./components/uploaders/products";
 import User from "./components/uploaders/user";
 import ProductDetail from "./products/productDetail";
+import Account from "./components/account/account";
 
 function main() {
   ReactDOM.render(
@@ -35,6 +36,8 @@ function main() {
             <Route path='/signup/user' exact component={User} />
             <Route path='/products/upload' exact component={Products} />
             <Route exact path="/product/:slug" exact component={ProductDetail} />
+
+            <Route path='/account' exact component={Account} />
           </Switch>
         </Layout>
       </Router>

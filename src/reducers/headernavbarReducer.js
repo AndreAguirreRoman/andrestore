@@ -4,24 +4,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    headerLinks: [
-        {
-            title: 'header1'
-        },
-        {
-            title: 'header2'
-        }
-    ],
-    navbarLinks: [
-        {
-            title: 'account',
-            active: true
-        },
-        {
-            title: 'purchases',
-            active: false
-        }
-    ]
+    headerLinks: [],
+    navbarLinks: []
 }
 
 export default function (state = INITIAL_STATE, action) {

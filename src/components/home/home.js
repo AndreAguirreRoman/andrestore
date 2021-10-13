@@ -107,10 +107,22 @@ class Home extends Component {
                                 <PageTitle className='home__products-main-wrapper-title' title={"Cameras"} />
                                 <div className='home__products-main-wrapper-products'>
                                     {productsCamera}
-                                    {/* {productsTv}
+                                </div>
+                                <PageTitle className='home__products-main-wrapper-title' title={"TV's"} />
+                                <div className='home__products-main-wrapper-products'>
+                                    {productsTv}
+                                </div>
+                                <PageTitle className='home__products-main-wrapper-title' title={"Computers"} />
+                                <div className='home__products-main-wrapper-products'>
                                     {productsComputer}
+                                </div>
+                                <PageTitle className='home__products-main-wrapper-title' title={"Video Games"} />
+                                <div className='home__products-main-wrapper-products'>
                                     {productsGames}
-                                    {productsHeadphones} */}
+                                </div>
+                                <PageTitle className='home__products-main-wrapper-title' title={"Headphones"} />
+                                <div className='home__products-main-wrapper-products'>
+                                    {productsHeadphones}
                                 </div>
                             </div>
                         </div>
