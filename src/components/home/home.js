@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+
+
 import CarouselPage from '../carousel/carousel';
+import * as actions from '../../actions';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
 import PaymentInformation from './paymentInformation';
 import ProductItem from '../../products/productItem';
 import Footer from '../footer';
-
-import axios from 'axios';
 import PageTitle from '../pageTitle';
 
 
@@ -34,7 +38,73 @@ class Home extends Component {
     }
 
     componentDidMount() {
+
+        const headerLinks = [
+            {
+                _id: 0,
+                title: <i className="fas fa-user-circle"> Account & information</i>,
+                active: false,
+                path: '/account'
+            },
+            {
+                _id: 1,
+                title: 'Orders',
+                active: true,
+                path: '/'
+            },
+        ]
+
+        const navbarLinks = [
+            {
+                _id: 0,
+                title: 'All',
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 1,
+                title: 'Phones',
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 2,
+                title: 'Cameras',
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 3,
+                title: "TV's",
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 4,
+                title: 'Computers',
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 5,
+                title: 'Video Games',
+                path: '/',
+                active: false,
+            },
+            {
+                _id: 6,
+                title: 'Headphones',
+                path: '/',
+                active: false,
+            },
+        ]
+
+
+
+
         this.getProducts();
+        this.props.setHeaderLinks(headerLinks)
+        this.props.setNavbarLinks(navbarLinks)
     }
 
 
@@ -135,4 +205,5 @@ class Home extends Component {
     }
 }
 
+Home = connect(null, actions)(Home)
 export default Home;
