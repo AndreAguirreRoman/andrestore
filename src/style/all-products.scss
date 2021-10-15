@@ -1,0 +1,10 @@
+.all-products,
+.phones,
+.cameras,
+.computers,
+.headphones,
+.tv,
+.video-games {
+	grid-column: s/e;
+	grid-row: content-s/content-e;
+}

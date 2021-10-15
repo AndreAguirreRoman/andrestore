@@ -16,7 +16,7 @@ h1 {
 *::before {
 	padding: 0;
 	margin: 0;
-	box-shadow: inherit;
+	box-sizing: inherit;
 }
 
 @import './layout';
@@ -28,6 +28,8 @@ h1 {
 @import './page-title.scss';
 @import './formfields.scss';
 @import './home.scss';
+@import './all-products.scss';
+@import './product-design.scss';
 @import './carousel.scss';
 @import './productPage.scss';
 @import './products.scss';

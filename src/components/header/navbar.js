@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
+import history from '../../history';
+
 
 class Navbar extends Component {
     render() {
@@ -11,7 +13,7 @@ class Navbar extends Component {
                 {
                     this.props.navbarLinks.map((link, index) => {
                         return (
-                            <a className={`navbar__link ${link.active ? 'green-text' : ''}`} key={index} onClick={() => this.props.changeNavbarActive(link._id)}>
+                            <a className='navbar__link' key={index} onClick={() => history.push(link.path)}>
                                 {link.title}
                             </a>
                         )
@@ -19,7 +21,7 @@ class Navbar extends Component {
                 }
 
 
-            </div>
+            </div >
         )
     }
 }

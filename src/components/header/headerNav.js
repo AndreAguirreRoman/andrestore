@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <div className='header'>
                 <img className='header__img' src='../../adre.png' />
-                //Searchbar
+                {/* SearchBar */}
                 <div className='header__links'>
                     {
                         this.props.headerLinks.map((link, index) => {
