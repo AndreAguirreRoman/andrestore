@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 
 import axios from 'axios';
 import ProductDesign from './productDesign';
+import PageTitle from '../pageTitle';
 
 class Tv extends Component {
 
@@ -104,15 +105,16 @@ class Tv extends Component {
     render() {
         const tv = this.state.productItems.filter((productItem) => productItem.product_category_name.includes("TV")).map(productItem => {
             return (
-                <div>
-                    <ProductDesign key={productItem.product_id} productItem={productItem} />
-                </div>
+                <ProductDesign key={productItem.product_id} className='tv__wrapper-item design' productItem={productItem} />
             )
         })
 
         return (
-            <div className='all-products'>
-                {tv}
+            <div className='filter'>
+                <PageTitle className={'filter__title'} title={"TV's"} />
+                <div className='tv'>
+                    {tv}
+                </div>
             </div>
         )
     }

@@ -1,3 +1,15 @@
+.filter {
+	grid-column: s/e;
+	grid-row: extra-s/extra-e;
+
+	&__title {
+		display: flex;
+		width: 940px;
+		padding-left: 22px;
+		justify-content: start;
+	}
+}
+
 .all-products,
 .phones,
 .cameras,
@@ -5,6 +17,46 @@
 .headphones,
 .tv,
 .video-games {
-	grid-column: s/e;
-	grid-row: content-s/content-e;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+
+	&__wrapper-item {
+		padding-left: 22px;
+		padding-bottom: 22px;
+	}
+}
+
+.product-design-item__main {
+	border-radius: 3px;
+	transition: all 0.2s
+		ease-in-out;
+	&:hover {
+		box-shadow: -4px 10px 20px
+			rgba(0, 0, 0, 0.3);
+	}
+	&-item {
+		text-decoration: none;
+		color: $main-black;
+		height: 230px;
+		&-wrapper {
+			&__info {
+				background-color: $off-white;
+				&-brand,
+				&-price {
+					display: flex;
+					padding-left: 5px;
+				}
+				&-brand {
+					height: 20px;
+					overflow: hidden;
+					font-size: 1.6rem;
+				}
+				&-price {
+					height: 20px;
+					font-size: 1.4rem;
+					font-weight: 600;
+				}
+			}
+		}
+	}
 }

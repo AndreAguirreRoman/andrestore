@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import history from '../../history';
 
 class Header extends Component {
     render() {
         return (
             <div className='header'>
-                <img className='header__img' src='../../adre.png' />
+                <Link className='header-image' to={"/"}>
+                    <img className='header-image__img' src='../../adre.png' />
+                </Link>
                 {/* SearchBar */}
                 <div className='header__links'>
                     {
                         this.props.headerLinks.map((link, index) => {
                             return (
-                                <a className='header__link' key={index} onClick={() => history.push(link.path)}>
+                                <a className='header__links-link' key={index} onClick={() => history.push(link.path)}>
                                     {link.title}
                                 </a>
                             )
                         })
                     }
                 </div>
-            </div>
+            </div >
         )
     }
 }

@@ -50,7 +50,6 @@ function main() {
             <Route path='/signup/user' exact component={User} />
             <Route path='/products/upload' exact component={Products} />
             <Route exact path="/product/:slug" exact component={ProductDetail} />
-
             <Route path='/account' exact component={Account} />
           </Switch>
         </Layout>
