@@ -38,7 +38,10 @@ class AllProducts extends Component {
         const headerLinks = [
             {
                 _id: 0,
-                title: <i className="fas fa-user-circle"> Account & information</i>,
+                title: <div className='header-icon'>
+                    <div className='header-icon__icon'><i className="fas fa-user-circle" ></i></div>
+                    <div className='header-icon__text'>Account & Information</div>
+                </div>,
                 active: false,
                 path: '/account'
             },

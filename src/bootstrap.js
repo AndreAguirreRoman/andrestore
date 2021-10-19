@@ -30,6 +30,7 @@ import Computers from "./components/pages/computers";
 import VideoGames from "./components/pages/videoGames";
 import Phones from "./components/pages/phones";
 import Cameras from "./components/pages/cameras";
+import PurchaseHistory from "./components/account/purchaseHistory";
 
 function main() {
   ReactDOM.render(
@@ -51,6 +52,7 @@ function main() {
             <Route path='/products/upload' exact component={Products} />
             <Route exact path="/product/:slug" exact component={ProductDetail} />
             <Route path='/account' exact component={Account} />
+            <Route path='/orders' exact component={PurchaseHistory} />
           </Switch>
         </Layout>
       </Router>

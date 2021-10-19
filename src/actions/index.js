@@ -1,11 +1,18 @@
 import {
     setHeaderLinks,
     setNavbarLinks,
-    changeNavbarActive
+    changeNavbarActive,
 } from './headerNavBar';
+
+import {
+    fetchUserPurchases
+} from './user';
+
 
 export {
     setHeaderLinks,
     setNavbarLinks,
-    changeNavbarActive
+    changeNavbarActive,
+
+    fetchUserPurchases
 }
