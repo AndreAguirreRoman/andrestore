@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import Footer from '../footer';
 
 import PageTitle from '../pageTitle';
-import PurchasesDetail from './purchaseDetail';
+import PurchaseDetail from './purchaseDetail';
 import Purchases from './purchases';
 
 class PurchaseHistory extends Component {
@@ -86,8 +86,10 @@ class PurchaseHistory extends Component {
         return (
             <div className='purchase-history'>
                 <PageTitle className='purchase-history__title' title='Orders' />
-                <Purchases className='purchase-history__purchases' />
-                <PurchasesDetail className='purchase-history__detail' />
+                <div className='purchase-history__content'>
+                    <Purchases className='purchase-history__purchases' />
+                    <PurchaseDetail className='purchase-history__detail' />
+                </div>
                 <Footer className='purchase-history__footer' />
             </div>
         )
