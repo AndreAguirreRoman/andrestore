@@ -162,7 +162,10 @@ class Home extends Component {
                 )
             })
 
+        console.log(this.state);
+
         return (
+
             <div className='home'>
                 <div className='home__carousel'>
                     <CarouselPage className='home__carousel-module' />

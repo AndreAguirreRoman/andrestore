@@ -1,0 +1,10 @@
+.account-information {
+	grid-column: s/e;
+	grid-row: content-s/content-e;
+
+	.account-information-form {
+		display: grid;
+		grid-template-columns: [s]1fr[e];
+		grid-template-rows: [names-s]1fr[names-e address-s]1fr[address-e];
+	}
+}

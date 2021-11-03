@@ -18,6 +18,7 @@ class SignIn extends Component {
 
     onSubmit = (fields) => {
         console.log(fields)
+
     }
     render() {
         return (

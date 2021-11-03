@@ -31,6 +31,8 @@ import VideoGames from "./components/pages/videoGames";
 import Phones from "./components/pages/phones";
 import Cameras from "./components/pages/cameras";
 import PurchaseHistory from "./components/account/purchaseHistory";
+import AccountInformation from "./components/account/accountInformation";
+import AddressPage from "./components/account/addressPage";
 
 function main() {
   ReactDOM.render(
@@ -51,8 +53,9 @@ function main() {
             <Route path='/signup/user' exact component={User} />
             <Route path='/products/upload' exact component={Products} />
             <Route exact path="/product/:slug" exact component={ProductDetail} />
-            <Route path='/account' exact component={Account} />
+            <Route path='/account' exact component={AccountInformation} />
             <Route path='/orders' exact component={PurchaseHistory} />
+            <Route path='/user/address' exact component={AddressPage} />
           </Switch>
         </Layout>
       </Router>

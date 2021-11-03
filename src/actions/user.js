@@ -1,6 +1,9 @@
+import axios from 'axios';
 import {
     SET_USER_PURCHASES,
-    SET_PURCHASE_DETAIL
+    SET_PURCHASE_DETAIL,
+    SET_USERS,
+    SET_USERS_SESSION
 } from './types';
 
 
@@ -10,6 +13,10 @@ export function setPurchaseDetail(_id) {
         payload: _id
     })
 }
+
+
+
+// export function fetchUser()
 
 
 export function fetchUserPurchases() {

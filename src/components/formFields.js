@@ -12,6 +12,18 @@ export class FormInput extends Component {
 
     }
 }
+export class AddressInput extends Component {
+    render() {
+        const { className, title, type, placeholder, info, id } = this.props;
+        return (
+            <div className={`${className} form-input`}>
+                <label className='form-input__label'>{title} </label>
+                <input className={`form-input__input`} id={id} type={type} placeholder={placeholder} {...info} />
+            </div>
+        )
+
+    }
+}
 
 export class FormSelectCat extends Component {
     render() {
@@ -89,6 +101,24 @@ export class FormButton extends Component {
         return (
             <div className={`${className} form-button`}>
                 <button className='form-button__button'
+                    type={type}
+                    {...input}
+                    onClick={onClick}
+                >
+                    {title}
+                </button>
+            </div>
+        )
+
+    }
+}
+
+export class AnotherButton extends Component {
+    render() {
+        const { className, title, type, onClick, input } = this.props;
+        return (
+            <div className={`${className} form-button`}>
+                <button className='form-button__button address-btn'
                     type={type}
                     {...input}
                     onClick={onClick}
