@@ -45,29 +45,6 @@ export class FormSelectCat extends Component {
     }
 }
 
-// export class FormSelectSub extends Component {
-//     render() {
-//         const { className, title } = this.props;
-//         return (
-//             <div className={`${className} form-input`}>
-//                 <label className='form-input__label'>{title}</label>
-//                 <select className='form-input__input'>
-//                     <option value={null}>Select Sub-category</option>
-//                     <option value="Smartphone">Smartphone</option>
-//                     <option value="Cellphone">Cellphone</option>
-//                     <option value="Smartcamera">SmartCamera</option>
-//                     <option value="Console">Console</option>
-//                     <option value="Controles">Controles</option>
-//                     <option value="SmartTv">Smart TV</option>
-//                     <option value="Laptop">Laptop</option>
-//                     <option value="Desktop">Desktop</option>
-//                     <option value="Wireless">Wireless</option>
-//                     <option value="Studio">Studio</option>
-//                 </select>
-//             </div>
-//         )
-//     }
-// }
 
 export class FormSelectSub extends Component {
     render() {
@@ -106,6 +83,25 @@ export class FormButton extends Component {
                     onClick={onClick}
                 >
                     {title}
+                </button>
+            </div>
+        )
+
+    }
+}
+
+export class LongGrayButton extends Component {
+    render() {
+        const { className, title, type, onClick, input, placeholder } = this.props;
+        return (
+            <div className={`${className} form-button-long-gray`}>
+                <label className='form-button-long-gray__label'>{title} </label>
+                <button className={`form-button-long-gray__button gray-btn`}
+                    type={type}
+                    {...input}
+                    onClick={onClick}
+                >
+                    {placeholder}
                 </button>
             </div>
         )

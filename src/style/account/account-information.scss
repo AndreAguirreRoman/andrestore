@@ -2,6 +2,12 @@
 	grid-column: s/e;
 	grid-row: content-s/content-e;
 
+	&__user {
+	}
+
+	&__passwords {
+	}
+
 	.account-information-form {
 		display: grid;
 		grid-template-columns: [s]1fr[e];

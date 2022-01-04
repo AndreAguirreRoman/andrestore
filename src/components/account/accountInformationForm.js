@@ -19,9 +19,6 @@ class AccountInformationForm extends Component {
             <form onSubmit={handleSubmit} className={`${className} account-information-form`}>
                 <Field className='account-information-form__first-name' type='first-name' placeholder='First Name' title='First Name' name='first-name' component={FormInput} />
                 <Field className='account-information-form__last-name' type='last-name' placeholder='Last Name' title='Last Name' name='last-name' component={FormInput} />
-                <Field className='account-information-form__email' type='email' placeholder='Email' title='Email' name='email' component={FormInput} />
-                <Field className='account-information-form__password' type='password' placeholder='Password' title='Password' name='password' component={FormInput} />
-
 
                 <Field className='account-information-form__street' type='street' placeholder='Street Name' title='Street Name' name='street' component={FormInput} />
                 <Field className='account-information-form__number' type='number' placeholder='Number' title='Number' name='number' component={FormInput} />
@@ -30,7 +27,7 @@ class AccountInformationForm extends Component {
                 <Field className='account-information-form__zip' type='zip' placeholder='Zip Code' title='Zip Code' name='zip' component={FormInput} />
                 <Field className='account-information-form__receiver' type='receiver' placeholder='Receives' title='Receives' name='receiver' component={FormInput} />
 
-                <Field className='account-information-form__login' onClick={() => console.log('submits?')} type='submit' title='Login' name='login' component={FormButton} />
+                <Field className='account-information-form__login' onClick={() => console.log('submits?')} type='submit' title='Update' name='login' component={FormButton} />
                 <div className='account-information-form__address'>
 
                 </div>

@@ -9,6 +9,7 @@ import Footer from '../footer';
 import AccountInformationItem from './accountInformationItem';
 import AccountInformationAddress from './accountInformationAddress';
 import AccountInformationForm from './accountInformationForm';
+import AccountInformationFormPassword from './accountInformationPassword';
 
 class AccountInformation extends Component {
     constructor() {
@@ -143,6 +144,10 @@ class AccountInformation extends Component {
                 <div className='account-information__user'>
                     <AccountInformationItem className='account-information__user-data-name' title='Name' value={user_first_name} valueTwo={user_last_name} link='user/name' />
                     <AccountInformationItem className='account-information__user-data-email' title='Email' value={user_email} link='user/email' />
+
+                </div>
+                <div className='account-information__passwords'>
+                    <AccountInformationFormPassword className='account-information__passwords-form' />
                 </div>
                 <hr />
                 <div className='account-information__address'>
