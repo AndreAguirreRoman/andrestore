@@ -12,6 +12,7 @@ export class FormInput extends Component {
 
     }
 }
+
 export class AddressInput extends Component {
     render() {
         const { className, title, type, placeholder, info, id } = this.props;
@@ -97,6 +98,24 @@ export class LongGrayButton extends Component {
             <div className={`${className} form-button-long-gray`}>
                 <label className='form-button-long-gray__label'>{title} </label>
                 <button className={`form-button-long-gray__button gray-btn`}
+                    type={type}
+                    {...input}
+                    onClick={onClick}
+                >
+                    {placeholder}
+                </button>
+            </div>
+        )
+
+    }
+}
+export class LongGrayPassword extends Component {
+    render() {
+        const { className, title, type, onClick, input, placeholder } = this.props;
+        return (
+            <div className={`${className} form-button-long-password`}>
+                <label className='form-button-long-password__label'>{title} </label>
+                <button className={`form-button-long-password__button password-btn`}
                     type={type}
                     {...input}
                     onClick={onClick}

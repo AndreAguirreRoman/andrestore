@@ -17,7 +17,8 @@ const INITIAL_STATE = {
             shippingAddress: ''
         }
     },
-    address: {}
+    address: {},
+    users: []
 }
 
 
@@ -40,11 +41,13 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 purchaseDetail
             }
-        // case SET_USER_ADDRESS:
+        // case ADD_USER:
+        //     const users = state.users.concat(action.payload);
         //     return {
         //         ...state,
-        //         address: action.payload
+        //         users
         //     }
+
         default: return state;
     }
 }

@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import * as actions from '../../actions'
 
 import axios from 'axios';
 import ProductDesign from './productDesign';
 import PageTitle from '../pageTitle';
 
-class Computers extends Component {
+class AllProducts extends Component {
 
+
+    constructor() {
+        super();
+
+        this.state = {
+            productItems: []
+        }
+
+        this.getProducts = this.getProducts.bind(this);
+    }
+
+    getProducts() {
+        axios.get("https://andreaguirre.herokuapp.com/products")
+            .then(response => {
+                this.setState({
+                    productItems: [...response.data]
+                })
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     componentDidMount() {
 
@@ -78,34 +101,34 @@ class Computers extends Component {
 
 
 
-        this.props.getProducts();
+        this.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
     }
 
+
     render() {
-        const computers = this.props.products.filter((productItem) => productItem.product_category_name.includes('Computer')).map(productItem => {
+
+        const allProducts = this.state.productItems.map(productItem => {
             return (
-                <ProductDesign key={productItem.product_id} className='computers__wrapper-item design' productItem={productItem} />
+                <ProductDesign key={productItem.product_id} className='all-products__wrapper-item design' productItem={productItem} />
             )
         })
 
         return (
             <div className='filter'>
-                <PageTitle className={'filter__title'} title={'Computers'} />
-                <div className='computers'>
-                    {computers}
+                <PageTitle className={'filter__title'} title={'All products'} />
+                <div className='all-products'>
+                    {allProducts}
                 </div>
             </div>
         )
     }
 }
-
 function mapStateToProps(state) {
-    const { products } = state.products
-    return { products }
+    return { state }
 }
 
-Computers = connect(mapStateToProps, actions)(Computers);
+AllProducts = connect(mapStateToProps, actions)(AllProducts);
 
-export default Computers;
+export default AllProducts;

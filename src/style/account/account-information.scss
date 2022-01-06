@@ -5,12 +5,44 @@
 	&__user {
 	}
 
-	&__passwords {
-	}
-
 	.account-information-form {
 		display: grid;
 		grid-template-columns: [s]1fr[e];
 		grid-template-rows: [names-s]1fr[names-e address-s]1fr[address-e];
+
+		&-btns {
+			display: flex;
+			align-content: center;
+			width: 440px;
+			gap: 10px;
+		}
+		&__passwords {
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			&__title {
+				font-size: 2rem;
+				padding-bottom: 5px;
+				padding-left: 10px;
+			}
+
+			&-edit {
+				padding-top: 20px;
+				padding-bottom: 10px;
+			}
+
+			&-wrapper {
+				padding-top: 20px;
+				padding-bottom: 10px;
+			}
+		}
+	}
+}
+
+.account-information-form-wrapper__passwords {
+	&-current_psswrd,
+	&-new_psswrd,
+	&-confirm_psswrd {
+		padding-bottom: 10px;
 	}
 }

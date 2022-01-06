@@ -80,3 +80,35 @@
 		font-size: 14px;
 	}
 }
+.form-button-long-password {
+	display: grid;
+	gap: 6.5px;
+
+	&__button {
+		height: 38px;
+		width: 215px;
+		border-radius: 5px;
+		background-color: $light-blue;
+		border: none;
+		font-family: 'Glory';
+		transition: all 0.4s
+			ease-out;
+		cursor: pointer;
+		&:hover {
+			background-color: $main-blue;
+		}
+		&:active {
+			background-color: yellow;
+		}
+
+		font-size: 16px;
+		color: white;
+
+		&:focus {
+			outline: none;
+		}
+	}
+	&__label {
+		font-size: 14px;
+	}
+}

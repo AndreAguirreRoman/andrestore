@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import axios from 'axios';
 
-import { FormInput, FormButton } from '../formFields';
+import { FormInput, FormButton, FormInputTest } from '../formFields';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+
 
 class AccountInformationForm extends Component {
 
@@ -13,11 +14,14 @@ class AccountInformationForm extends Component {
 
     render() {
 
-        const { className, handleSubmit } = this.props;
+        const { className, handleSubmit, required, valid } = this.props;
+
+
+
 
         return (
             <form onSubmit={handleSubmit} className={`${className} account-information-form`}>
-                <Field className='account-information-form__first-name' type='first-name' placeholder='First Name' title='First Name' name='first-name' component={FormInput} />
+                <Field className='account-information-form__first-name' type='first-name' placeholder='First Name' title='First Name' name='firstName' component={FormInput} validate={required} />
                 <Field className='account-information-form__last-name' type='last-name' placeholder='Last Name' title='Last Name' name='last-name' component={FormInput} />
 
                 <Field className='account-information-form__street' type='street' placeholder='Street Name' title='Street Name' name='street' component={FormInput} />
@@ -27,13 +31,22 @@ class AccountInformationForm extends Component {
                 <Field className='account-information-form__zip' type='zip' placeholder='Zip Code' title='Zip Code' name='zip' component={FormInput} />
                 <Field className='account-information-form__receiver' type='receiver' placeholder='Receives' title='Receives' name='receiver' component={FormInput} />
 
-                <Field className='account-information-form__login' onClick={() => console.log('submits?')} type='submit' title='Update' name='login' component={FormButton} />
+                <Field className='account-information-form__login' disabled={!valid} onClick={() => console.log('submits?')} type='submit' title='Update' name='login' component={FormButton} />
                 <div className='account-information-form__address'>
 
                 </div>
             </form>
         )
     }
+}
+
+const validate = formValues => {
+    const errors = {}
+    if (!formValues.firstName) {
+        errors.firstName = "Enter your first name"
+    }
+
+    return errors
 }
 
 function mapStateToProps(state) {
@@ -43,7 +56,8 @@ function mapStateToProps(state) {
 AccountInformationForm = connect(mapStateToProps, actions)(AccountInformationForm)
 
 AccountInformationForm = reduxForm({
-    form: 'AccountInformationForm'
+    form: 'AccountInformationForm',
+    validate
 })(AccountInformationForm)
 
 export default AccountInformationForm;

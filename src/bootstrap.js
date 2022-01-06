@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import thunk from 'redux-thunk';
 import { Router, Switch, Route } from 'react-router-dom';
 
 import reducers from "./reducers";
@@ -9,7 +10,7 @@ import reducers from "./reducers";
 
 
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 import "./style/main.scss";
 
@@ -33,6 +34,8 @@ import Cameras from "./components/pages/cameras";
 import PurchaseHistory from "./components/account/purchaseHistory";
 import AccountInformation from "./components/account/accountInformation";
 import AddressPage from "./components/account/addressPage";
+import ProductsNew from "./components/pages/products";
+
 
 function main() {
   ReactDOM.render(
@@ -56,6 +59,7 @@ function main() {
             <Route path='/account' exact component={AccountInformation} />
             <Route path='/orders' exact component={PurchaseHistory} />
             <Route path='/user/address' exact component={AddressPage} />
+            <Route path='/productssss' exact component={ProductsNew} />
           </Switch>
         </Layout>
       </Router>

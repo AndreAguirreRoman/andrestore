@@ -7,8 +7,18 @@ import {
 import {
     fetchUserPurchases,
     setPurchaseDetail,
+    addUser
 } from './user';
 
+import {
+    fetchShopCategories,
+    fetchProducts,
+    filterProductsWithCategoryId
+} from './shop'
+
+import {
+    getProducts
+} from './products';
 
 export {
     setHeaderLinks,
@@ -16,5 +26,11 @@ export {
     changeNavbarActive,
 
     fetchUserPurchases,
-    setPurchaseDetail
+    setPurchaseDetail,
+    fetchShopCategories,
+    fetchProducts,
+    filterProductsWithCategoryId,
+
+    addUser,
+    getProducts
 }

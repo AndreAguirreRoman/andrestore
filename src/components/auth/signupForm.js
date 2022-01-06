@@ -7,6 +7,13 @@ import { FormInput, FormButton } from '../formFields';
 
 class SignUpForm extends Component {
 
+    constructor(props) {
+        super(props);
+
+
+    }
+
+
     render() {
 
         let state = false;

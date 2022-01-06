@@ -53,6 +53,7 @@ class AccountInformation extends Component {
 
 
 
+
     componentDidMount() {
 
         const headerLinks = [
@@ -118,25 +119,33 @@ class AccountInformation extends Component {
             },
         ]
 
+
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
         this.getAddresses();
         this.getUserName();
     }
 
-    onSubmit = (fields) => {
-        console.log(fields)
+    // onSubmit = (fields) => {
+    //     console.log(fields)
+    // }
+
+    onSubmit = values => {
+        alert(JSON.stringify(values))
     }
 
-
-
-
-
+    required = v => {
+        if (!v || v === '') {
+            return console.log('This field is required')
+        }
+        return undefined;
+    };
 
 
     render() {
         const { user_first_name, user_last_name, user_email } = this.state.userName;
         const { address_number, address_street, address_city, address_state, address_zip } = this.state.addresses;
+
 
         return (
             <div className='account-information'>
@@ -146,16 +155,18 @@ class AccountInformation extends Component {
                     <AccountInformationItem className='account-information__user-data-email' title='Email' value={user_email} link='user/email' />
 
                 </div>
-                <div className='account-information__passwords'>
-                    <AccountInformationFormPassword className='account-information__passwords-form' />
-                </div>
-                <hr />
+
+
                 <div className='account-information__address'>
                     <AccountInformationAddress className='account-information__address-data' title='Address' number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} link='user/address' />
                 </div>
-                <div>
-                    <AccountInformationForm />
+                <hr />
+                <div className='account-information__passwords'>
+                    <AccountInformationFormPassword title='Password' className='account-information__passwords-form' />
                 </div>
+                {/* <div> 
+                    <AccountInformationForm onSubmit={this.onSubmit} required={this.required} />
+                </div> */}
 
                 <Footer className='account-information__footer' />
             </div>

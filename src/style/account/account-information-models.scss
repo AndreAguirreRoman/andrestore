@@ -2,8 +2,6 @@
 .account-addresses {
 	height: 100px;
 	padding-top: 20px;
-
-	padding-bottom: 100px;
 	&-link {
 		height: 60px;
 		text-decoration: none;
@@ -81,7 +79,6 @@
 		display: flex;
 		width: 940px;
 		&__info {
-			height: 60px;
 			background-color: $off-white;
 			border-radius: 7px;
 

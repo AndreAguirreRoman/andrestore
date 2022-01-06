@@ -127,3 +127,19 @@ export function fetchUserPurchases() {
         ]
     })
 }
+
+// export const addUser = userObj => {
+//     return (dispatch) => {
+//         axios.post('https://andreaguirre.herokuapp.com/user', userObj)
+//             .then(response => {
+//                 dispatch({
+//                     type: ADD_USER,
+//                     payload: response.data
+//                 })
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             });
+
+//     }
+// }
