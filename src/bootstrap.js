@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk';
 import { Router, Switch, Route } from 'react-router-dom';
 
@@ -10,7 +10,8 @@ import reducers from "./reducers";
 
 
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk)(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
+
 
 import "./style/main.scss";
 
@@ -34,7 +35,7 @@ import Cameras from "./components/pages/cameras";
 import PurchaseHistory from "./components/account/purchaseHistory";
 import AccountInformation from "./components/account/accountInformation";
 import AddressPage from "./components/account/addressPage";
-import ProductsNew from "./components/pages/products";
+import Results from "./components/pages/results";
 
 
 function main() {
@@ -45,6 +46,7 @@ function main() {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/products' exact component={AllProducts} />
+            <Route path='/products/results' exact component={AllProducts} />
             <Route path='/products/headphones' exact component={Headphones} />
             <Route path='/products/tv' exact component={Tv} />
             <Route path='/products/computers' exact component={Computers} />
@@ -58,8 +60,8 @@ function main() {
             <Route exact path="/product/:slug" exact component={ProductDetail} />
             <Route path='/account' exact component={AccountInformation} />
             <Route path='/orders' exact component={PurchaseHistory} />
-            <Route path='/user/address' exact component={AddressPage} />
-            <Route path='/productssss' exact component={ProductsNew} />
+            <Route path='/account/address' exact component={AddressPage} />
+            <Route path='/products/search' exact component={Results} />
           </Switch>
         </Layout>
       </Router>

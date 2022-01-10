@@ -9,28 +9,6 @@ import PageTitle from '../pageTitle';
 
 class VideoGames extends Component {
 
-    constructor() {
-        super();
-
-        this.state = {
-            productItems: []
-        }
-
-        this.getProducts = this.getProducts.bind(this);
-    }
-
-    getProducts() {
-        axios.get("https://andreaguirre.herokuapp.com/products")
-            .then(response => {
-                this.setState({
-                    productItems: [...response.data]
-                })
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
 
     componentDidMount() {
 
@@ -100,13 +78,13 @@ class VideoGames extends Component {
 
 
 
-        this.getProducts();
+        this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
     }
 
     render() {
-        const videoGames = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Video-Games')).map(productItem => {
+        const videoGames = this.props.products.filter((productItem) => productItem.product_category_name.includes('Video-Games')).map(productItem => {
             return (
                 <ProductDesign key={productItem.product_id} className='video-games__wrapper-item design' productItem={productItem} />
             )
@@ -122,7 +100,11 @@ class VideoGames extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    const { products } = state.products
+    return { products }
+}
 
-VideoGames = connect(null, actions)(VideoGames);
+VideoGames = connect(mapStateToProps, actions)(VideoGames);
 
 export default VideoGames;

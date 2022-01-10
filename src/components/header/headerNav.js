@@ -2,16 +2,22 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import history from '../../history';
+
+import SearchBar from './searchBar';
 
 class Header extends Component {
+
+    handleSearchSubmit(query) {
+        console.log('query', query);
+    }
+
     render() {
         return (
             <div className='header'>
                 <Link className='header-image' to={"/"}>
                     <img className='header-image__img' src='../../adre.png' />
                 </Link>
-                {/* SearchBar */}
+                <SearchBar className='header-searchbar' onSubmit={(query) => this.handleSearchSubmit(query)} />
                 <div className='header__links'>
                     {
                         this.props.headerLinks.map((link, index) => {

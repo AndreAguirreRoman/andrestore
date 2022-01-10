@@ -25,3 +25,4 @@ class AccountInformationAddress extends Component {
 }
 
 export default AccountInformationAddress;
+

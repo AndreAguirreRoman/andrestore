@@ -30,22 +30,56 @@ class AllProducts extends Component {
             },
         ]
 
+        const navbarLinks = [
+            {
+                _id: 0,
+                title: 'All',
+                path: '/products',
+                active: false,
+            },
+            {
+                _id: 1,
+                title: 'Phones',
+                path: '/products/phones',
+                active: false,
+            },
+            {
+                _id: 2,
+                title: 'Cameras',
+                path: '/products/cameras',
+                active: false,
+            },
+            {
+                _id: 3,
+                title: "TV's",
+                path: '/products/tv',
+                active: false,
+            },
+            {
+                _id: 4,
+                title: 'Computers',
+                path: '/products/computers',
+                active: false,
+            },
+            {
+                _id: 5,
+                title: 'Video Games',
+                path: '/products/video-games',
+                active: false,
+            },
+            {
+                _id: 6,
+                title: 'Headphones',
+                path: '/products/headphones',
+                active: false,
+            },
+        ]
+
 
 
         this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
-        this.props.fetchShopCategories()
-
-        // this.props.setNavbarLinks(navbarLinks)
-    }
-
-    shouldComponentUpdate(nextProps) {
-        if (this.props != nextProps) {
-            this.props.setNavbarLinks(nextProps.categories, (_id) => this.props.filterProductsWithCategoryId(_id))
-        }
-
-        return true;
-
+        this.props.setNavbarLinks(navbarLinks)
     }
 
     render() {

@@ -1,9 +1,9 @@
 import axios from 'axios';
+
 import {
     SET_USER_PURCHASES,
     SET_PURCHASE_DETAIL,
-    SET_USERS,
-    SET_USERS_SESSION
+    FETCH_USER_ADDRESS
 } from './types';
 
 
@@ -15,8 +15,21 @@ export function setPurchaseDetail(_id) {
 }
 
 
-
-// export function fetchUser()
+export function getAddress() {
+    return function (dispatch) {
+        axios.get('https://andreaguirre.herokuapp.com/user/addresses')
+            .then(response => {
+                console.log("dispatcher", response.data);
+                dispatch({
+                    type: FETCH_USER_ADDRESS,
+                    payload: response.data
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}
 
 
 export function fetchUserPurchases() {

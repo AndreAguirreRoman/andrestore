@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import SearchBar from '../header/searchBar';
 
-import axios from 'axios';
-import ProductDesign from './productDesign';
-import PageTitle from '../pageTitle';
 
-class Cameras extends Component {
+class Results extends Component {
+
 
 
     componentDidMount() {
@@ -77,25 +76,35 @@ class Cameras extends Component {
 
 
 
-
-        this.props.getProducts();
+        // this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
     }
 
-    render() {
-        const cameras = this.props.products.filter((productItem) => productItem.product_category_name.includes('Smartcamera')).map(productItem => {
-            return (
-                <ProductDesign key={productItem.product_id} className='cameras__wrapper-item design' productItem={productItem} />
-            )
-        })
 
+    handleSearchSubmit(query) {
+        console.log('hello nigga')
+    }
+
+    render() {
         return (
-            <div className='filter'>
-                <PageTitle className={'filter__title'} title={'Cameras'} />
-                <div className='cameras'>
-                    {cameras}
-                </div>
+            <div className='results'>
+
+                <SearchBar onSubmit={(query) => this.handleSearchSubmit(query)} />
+                {/* {
+                    this.props.products.map(product => {
+                        return (
+                            <div className='shop-product' key={product.product_id}>
+                                <div className='shop-product__title'>
+                                    {product.product_name}
+                                </div>
+                                <div className='shop-product__description'>
+                                    {product.product_description}
+                                </div>
+                            </div>
+                        )
+                    })
+                } */}
             </div>
         )
     }
@@ -103,9 +112,11 @@ class Cameras extends Component {
 
 function mapStateToProps(state) {
     const { products } = state.products
-    return { products }
+    return {
+        products
+    }
 }
 
-Cameras = connect(mapStateToProps, actions)(Cameras);
+Results = connect(mapStateToProps, actions)(Results)
 
-export default Cameras;
+export default Results;

@@ -21,7 +21,7 @@ class Navbar extends Component {
                 {
                     this.props.navbarLinks.map((link, index) => {
                         return (
-                            <a className='navbar__link' key={index} onClick={() => this.handleOnClick(link)}>
+                            <a className='navbar__link' key={index} onClick={() => history.push(link.path)}>
                                 {link.title}
                             </a>
                         )

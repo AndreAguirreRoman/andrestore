@@ -14,28 +14,28 @@ import PageTitle from '../pageTitle';
 
 
 class Home extends Component {
-    constructor() {
-        super();
+    // constructor() {
+    //     super();
 
-        this.state = {
-            productItems: []
-        }
+    //     this.state = {
+    //         productItems: []
+    //     }
 
-        this.getProducts = this.getProducts.bind(this);
-    }
+    //     this.getProducts = this.getProducts.bind(this);
+    // }
 
-    getProducts() {
-        axios.get("https://andreaguirre.herokuapp.com/products")
-            .then(response => {
-                this.setState({
-                    productItems: [...response.data]
-                })
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    // getProducts() {
+    //     axios.get("https://andreaguirre.herokuapp.com/products")
+    //         .then(response => {
+    //             this.setState({
+    //                 productItems: [...response.data]
+    //             })
+    //             console.log(response)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
+    // }
 
     componentDidMount() {
 
@@ -105,7 +105,7 @@ class Home extends Component {
 
 
 
-        this.getProducts();
+        this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
     }
@@ -113,58 +113,61 @@ class Home extends Component {
 
     render() {
 
-        const productsSmartphone = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Smartphone'))
+        const productsItems = this.props.productItems;
+
+        const productsSmartphone = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Smartphone'))
             .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} />
                     </div>
                 )
             })
-        const productsCamera = this.state.productItems.filter((productItemCamera) => productItemCamera.product_category_name.includes('Smartcamera'))
-            .map(productItemCamera => {
+        const productsCamera = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Smartcamera'))
+            .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItemCamera.product_id} productItem={productItemCamera} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} />
                     </div>
                 )
             })
-        const productsTv = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('TV'))
+        const productsTv = productsItems.products.filter((productItem) => productItem.product_category_name.includes('TV'))
             .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} />
                     </div>
                 )
             })
-        const productsComputer = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Computer'))
+        const productsComputer = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Computer'))
             .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} />
                     </div>
                 )
             })
-        const productsGames = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Video-Games'))
+        const productsGames = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Video-Games'))
             .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} />
                     </div>
                 )
             })
-        const productsHeadphones = this.state.productItems.filter((productItem) => productItem.product_category_name.includes('Headphones'))
+        const productsHeadphones = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Headphones'))
             .map(productItem => {
                 return (
-                    <div className='products-items'>
-                        <ProductItem key={productItem.product_id} productItem={productItem} />
+                    <div className='products-items' key={productItem.product_id}>
+                        <ProductItem productItem={productItem} onClick={() => console.log(productItem.product_id)} />
                     </div>
                 )
             })
 
         console.log(this.state);
-
+        console.log("For debug", productsItems.products)
         return (
+
 
             <div className='home'>
                 <div className='home__carousel'>
@@ -206,10 +209,15 @@ class Home extends Component {
                     </div>
                 </div>
                 <Footer className='home__footer' />
-            </div>
+            </div >
         )
     }
 }
 
-Home = connect(null, actions)(Home)
+function mapStateToProps(state) {
+    const productItems = state.products;
+    return { productItems }
+}
+
+Home = connect(mapStateToProps, actions)(Home)
 export default Home;

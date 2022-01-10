@@ -9,28 +9,6 @@ import PageTitle from '../pageTitle';
 
 class Phones extends Component {
 
-    constructor() {
-        super();
-
-        this.state = {
-            productItems: []
-        }
-
-        this.getProducts = this.getProducts.bind(this);
-    }
-
-    getProducts() {
-        axios.get("https://andreaguirre.herokuapp.com/products")
-            .then(response => {
-                this.setState({
-                    productItems: [...response.data]
-                })
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
 
     componentDidMount() {
 
@@ -100,13 +78,13 @@ class Phones extends Component {
 
 
 
-        this.getProducts();
+        this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
     }
 
     render() {
-        const phones = this.state.productItems.filter((productItem) => productItem.product_category_name.includes("Smartphone")).map(productItem => {
+        const phones = this.props.products.filter((productItem) => productItem.product_category_name.includes("Smartphone")).map(productItem => {
             return (
                 <ProductDesign key={productItem.product_id} className='phones__wrapper-item design' productItem={productItem} />
             )
@@ -123,6 +101,11 @@ class Phones extends Component {
     }
 }
 
-Phones = connect(null, actions)(Phones);
+function mapStateToProps(state) {
+    const { products } = state.products
+    return { products }
+}
+
+Phones = connect(mapStateToProps, actions)(Phones);
 
 export default Phones;

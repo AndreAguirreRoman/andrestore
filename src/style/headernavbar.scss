@@ -20,6 +20,12 @@
 		}
 	}
 
+	&-searchbar {
+		display: flex;
+		align-items: center;
+		grid-column: searchbar-s/searchbar-e;
+	}
+
 	&-icon {
 		display: flex;
 		align-items: center;

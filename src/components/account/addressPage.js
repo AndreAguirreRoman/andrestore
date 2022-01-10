@@ -6,6 +6,8 @@ import axios from 'axios';
 import { FormInput, FormButton } from '../formFields';
 import AddressPageForm from './addressPageForm';
 import AccountInformationAddressDelete from './accountInformationAddressDelete';
+import PageTitle from '../pageTitle';
+
 
 
 class AddressPage extends Component {
@@ -13,8 +15,10 @@ class AddressPage extends Component {
         super()
         this.state = {
             addresses: {},
-            info: true
+            showAddress: true
         }
+
+        this.deleteAddress = this.deleteAddress.bind(this)
     }
 
 
@@ -35,12 +39,12 @@ class AddressPage extends Component {
 
     deleteAddress() {
         axios.delete("https://andreaguirre.herokuapp.com/user/address/2").then(response => {
-            this.setState({
-                info: false
-            })
+            console.log("res", response)
         }).catch(error => {
             console.log("error", error)
         })
+        console.log("working?")
+        this.setState({ showAddress: false })
     }
 
     componentDidMount() {
@@ -56,10 +60,12 @@ class AddressPage extends Component {
 
         return (
             <div className='address'>
-                {/* <AddressPageForm /> */}
-                {this.state.info === false ? <div></div> : <AccountInformationAddressDelete className='account-information__address-data' onClick={this.deleteAddress} title='Address' number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} />}
+                <PageTitle title={'Your address'} />
 
-            </div>
+                {
+                    this.state.showAddress ?
+                        <AccountInformationAddressDelete className='account-information__address-data' onClick={this.deleteAddress} number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} /> : <div>You don't have an address</div>}
+            </div >
 
         )
     }

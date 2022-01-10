@@ -20,30 +20,30 @@ class AccountInformation extends Component {
             userName: {}
         }
 
-        this.getAddresses = this.getAddresses.bind(this);
+        // this.getAddresses = this.getAddresses.bind(this);
         this.getUserName = this.getUserName.bind(this);
     }
 
-    getAddresses() {
-        axios.get("https://andreaguirre.herokuapp.com/user/address/1")
-            .then(response => {
-                this.setState({
-                    addresses: { ...response.data }
-                })
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+    // getAddresses() {
+    //     axios.get("https://andreaguirre.herokuapp.com/user/address/1")
+    //         .then(response => {
+    //             this.setState({
+    //                 addresses: { ...response.data }
+    //             })
+    //             console.log('this working?', response)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
 
-    }
+    // }
     getUserName() {
         axios.get("https://andreaguirre.herokuapp.com/user/1")
             .then(response => {
                 this.setState({
                     userName: { ...response.data }
                 })
-                console.log(response)
+                console.log("hello", response)
             })
             .catch(error => {
                 console.log(error)
@@ -122,31 +122,36 @@ class AccountInformation extends Component {
 
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
-        this.getAddresses();
+        this.props.getAddress();
+        // this.getAddresses();
         this.getUserName();
     }
 
-    // onSubmit = (fields) => {
-    //     console.log(fields)
-    // }
-
-    onSubmit = values => {
-        alert(JSON.stringify(values))
+    // const computers = this.props.products.filter((productItem) => productItem.product_category_name.includes('Computer')).map(productItem => {
+    renderAddress = function () {
+        const addressesItems = this.props.addresses.addresses.filter((addressesItem) => addressesItem.address_user_id === 1).map((addressesItem) => {
+            return (
+                <AccountInformationAddress
+                    key={addressesItem.address_id}
+                    className='account-information__address-data'
+                    title='Address'
+                    number={addressesItem.address_number}
+                    street={addressesItem.address_street}
+                    city={addressesItem.address_city}
+                    state={addressesItem.address_state}
+                    zip={addressesItem.address_zip}
+                    link='account/address' />
+            )
+        })
+        return addressesItems;
     }
-
-    required = v => {
-        if (!v || v === '') {
-            return console.log('This field is required')
-        }
-        return undefined;
-    };
 
 
     render() {
         const { user_first_name, user_last_name, user_email } = this.state.userName;
-        const { address_number, address_street, address_city, address_state, address_zip } = this.state.addresses;
+        // const address { address_number, address_street, address_city, address_state, address_zip } = this.props.addresses;
 
-
+        console.log("data",)
         return (
             <div className='account-information'>
                 <PageTitle className='account-information__title' title='Account & Information' />
@@ -158,7 +163,8 @@ class AccountInformation extends Component {
 
 
                 <div className='account-information__address'>
-                    <AccountInformationAddress className='account-information__address-data' title='Address' number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} link='user/address' />
+                    {this.renderAddress()}
+                    {/* <AccountInformationAddress className='account-information__address-data' title='Address' number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} link='user/address' /> */}
                 </div>
                 <hr />
                 <div className='account-information__passwords'>
@@ -174,7 +180,12 @@ class AccountInformation extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        addresses: state.addresses
+    }
+}
 
-AccountInformation = connect(null, actions)(AccountInformation)
+AccountInformation = connect(mapStateToProps, actions)(AccountInformation)
 
 export default AccountInformation;

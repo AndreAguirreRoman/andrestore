@@ -1,17 +1,7 @@
 import {
     // SET_SHOP_CATEGORIES
-    SET_NAVBAR_LINKS,
-    FILTER_PRODUCTS_WITH_CATEGORY_ID,
     SET_SHOP_CATEGORIES
 } from './types';
-
-export function filterProductsWithCategoryId(_id) {
-    console.log(_id)
-    return ({
-        type: FILTER_PRODUCTS_WITH_CATEGORY_ID,
-        payload: _id
-    })
-}
 
 
 

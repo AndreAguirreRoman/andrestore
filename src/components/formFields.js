@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 
+// export class SearchInput extends Component {
+//     render() {
+//         const { className, type, placeholder, input, id } = this.props;
+
+//         return (
+//             <div className={`${className} search-input`}>
+//                 <input className={'search-input__input'} id={id} type={type} placeholder={placeholder} {...input} />
+//             </div>
+//         )
+//     }
+// }
+
 export class FormInput extends Component {
     render() {
         const { className, title, type, placeholder, input, id } = this.props;

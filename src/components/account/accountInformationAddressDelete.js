@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 
 class AccountInformationAddressDelete extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            showAddress: true
+        }
+    }
     render() {
         const { className, title, number, street, city, state, zip, onClick } = this.props;
         return (
@@ -21,6 +29,9 @@ class AccountInformationAddressDelete extends Component {
                 </div>
 
             </div>
+
+
+
         )
     }
 }
