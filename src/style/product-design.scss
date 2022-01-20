@@ -4,4 +4,10 @@
 
 .product-design-item {
 	width: 191px;
+	padding-left: 22px;
+	padding-bottom: 22px;
+
+	&-wrapper {
+		border-radius: 7px;
+	}
 }

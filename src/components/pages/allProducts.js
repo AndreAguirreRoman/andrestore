@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
 
-import axios from 'axios';
 import ProductDesign from './productDesign';
 import PageTitle from '../pageTitle';
+import ShopCart from '../cart/shopCart'
 
 class AllProducts extends Component {
 
@@ -93,6 +93,7 @@ class AllProducts extends Component {
         return (
             <div className='filter'>
                 <PageTitle className={'filter__title'} title={'All products'} />
+                <ShopCart />
                 <div className='all-products'>
                     {allProducts}
                 </div>

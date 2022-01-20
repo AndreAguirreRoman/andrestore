@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import SearchBar from '../header/searchBar';
+import ProductDesign from './productDesign';
+
 
 
 class Results extends Component {
@@ -82,38 +83,33 @@ class Results extends Component {
     }
 
 
-    handleSearchSubmit(query) {
-        console.log('hello nigga')
-    }
-
     render() {
+        const filteredProductss = this.props.filteredProducts.map(filteredProduct => {
+            return (
+                <ProductDesign key={filteredProduct.product_id} className='computers__wrapper-item design' productItem={filteredProduct} />
+            )
+        })
+
         return (
             <div className='results'>
 
-                <SearchBar onSubmit={(query) => this.handleSearchSubmit(query)} />
-                {/* {
-                    this.props.products.map(product => {
-                        return (
-                            <div className='shop-product' key={product.product_id}>
-                                <div className='shop-product__title'>
-                                    {product.product_name}
-                                </div>
-                                <div className='shop-product__description'>
-                                    {product.product_description}
-                                </div>
-                            </div>
-                        )
-                    })
-                } */}
+
+                {
+                    this.props.filteredProducts.length ? [filteredProductss] : 'No results'
+                }
+
+
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    const { products } = state.products
+    const { products, filteredProducts } = state.products
+    console.log(filteredProducts)
     return {
-        products
+        products,
+        filteredProducts
     }
 }
 

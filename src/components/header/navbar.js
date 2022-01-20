@@ -8,12 +8,6 @@ import history from '../../history';
 
 class Navbar extends Component {
 
-    handleOnClick = (link) => {
-        this.props.changeNavbarActive(link._id)
-        if (this.props.onClick) {
-            this.props.onClick(link._id);
-        }
-    }
 
     render() {
         return (

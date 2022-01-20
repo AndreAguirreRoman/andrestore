@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import history from '../../history';
 import SearchBar from './searchBar';
+import * as actions from '../../actions'
 
 class Header extends Component {
 
-    handleSearchSubmit(query) {
-        console.log('query', query);
-    }
 
+    onSubmit = (fields) => {
+        this.props.filterProducts(fields)
+        history.push('/products/search')
+    }
     render() {
         return (
             <div className='header'>
                 <Link className='header-image' to={"/"}>
                     <img className='header-image__img' src='../../adre.png' />
                 </Link>
-                <SearchBar className='header-searchbar' onSubmit={(query) => this.handleSearchSubmit(query)} />
+                <SearchBar className='header-searchbar' onSubmit={this.onSubmit} />
                 <div className='header__links'>
                     {
                         this.props.headerLinks.map((link, index) => {
@@ -41,6 +43,6 @@ function mapStateToProps(state) {
     }
 }
 
-Header = connect(mapStateToProps)(Header)
+Header = connect(mapStateToProps, actions)(Header)
 
 export default Header;

@@ -1,4 +1,4 @@
-import { GET_PRODUCTS } from './types';
+import { GET_PRODUCTS, FILTER_PRODUCTS_WITH_QUERY } from './types';
 
 import axios from 'axios';
 
@@ -18,19 +18,33 @@ export function getProducts() {
             })
     }
 }
-// export async function getProducts() {
-//     try {
-//         const request = await axios.get('https://andreaguirre.herokuapp.com/products');
 
-//         return {
-//             type: GET_PRODUCTS,
-//             payload: response.data
-//         }
-//     }.catch (error => {
-//         console.log(error)
-//     })
 
+export function filterProducts(fields) {
+    return ({
+        type: FILTER_PRODUCTS_WITH_QUERY,
+        payload: fields
+    })
+}
+
+// export function getProductsWithQuery(query) {
+//     return function (dispatch) {
+//         axios.get('https://andreaguirre.herokuapp.com/products')
+//             .then(response => {
+//                 console.log("query is", response.data);
+//                 console.log(query)
+//                 dispatch({
+//                     type: GET_PRODUCTS_WITH_QUERY,
+//                     payload: response.data
+//                 })
+//             })
+//             .catch(error => {
+//                 console.log(error)
+//             })
+
+//     }
 // }
+
 
 
 // export function getProducts() {

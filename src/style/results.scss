@@ -2,4 +2,7 @@
 	grid-column: s/e;
 	grid-row: extra-s/extra-e;
 	display: grid;
+
+	padding-top: 60px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 }

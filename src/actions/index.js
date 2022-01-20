@@ -17,7 +17,9 @@ import {
 } from './shop'
 
 import {
-    getProducts
+    getProducts,
+    getProductsWithQuery,
+    filterProducts
 } from './products';
 
 export {
@@ -29,8 +31,10 @@ export {
     setPurchaseDetail,
     fetchShopCategories,
     fetchProducts,
+    filterProducts,
 
     addUser,
     getProducts,
+    getProductsWithQuery,
     getAddress
 }

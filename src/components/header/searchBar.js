@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
+
 import { reduxForm, Field } from 'redux-form';
 
-import { withRouter } from 'react-router-dom';
+function FormSearchBar(props) {
 
+    return (
+        <input className={`${props.className} form-search-bar`} {...props.input} type='text' placeholder={`${props.placeholder}`} />
+    )
+    console.log(...props.input)
+}
 
+{/* <i class="fas fa-search"></i> */ }
 
-class SearchBar extends Component {
-
-    handleFormSubmit = function ({ query }) {
-        this.props.onSubmit(query);
-        this.props.history.push('/products/search')
-    }
-
-
-    renderInput(field) {
-        return <input type='text' placeholder='Search' {...field.input} />
-    }
-
+class ShopSearchBar extends Component {
     render() {
         const { className, handleSubmit } = this.props;
         return (
-            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className={className}>
-                <Field name='query' component={this.renderInput} />
+            <form onSubmit={handleSubmit} className={`${className} searchbar`}>
+                <Field name='query' className='searchbar__field' placeholder='Search' component={FormSearchBar} />
             </form>
         )
     }
 }
 
-SearchBar = reduxForm({
-    form: 'searchBar'
-})(SearchBar);
+ShopSearchBar = reduxForm({
+    form: 'ShopSearchBar'
+})(ShopSearchBar);
 
-SearchBar = withRouter(SearchBar);
-
-export default SearchBar;
+export default ShopSearchBar;

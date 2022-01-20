@@ -7,7 +7,7 @@
 	grid-template-columns: 10px [logo-s] 0.5fr [ logo-e searchbar-s]9fr [ searchbar-e links-s] 2.2fr [links-e];
 
 	&-image {
-		padding-left: 10px;
+		padding-left: 25px;
 		display: flex;
 		&__img {
 			justify-self: center;
@@ -42,6 +42,7 @@
 	}
 
 	&__links {
+		padding-top: 3px;
 		grid-column: links-s/links-e;
 		grid-row: 1/-1;
 
@@ -54,6 +55,7 @@
 		align-items: center;
 		color: #e6e6e6;
 		font-size: 1.7rem;
+		padding-right: 10px;
 
 		a {
 			font-family: 'Glory',
@@ -87,8 +89,8 @@
 
 	align-items: center;
 	justify-content: start;
-	padding-left: 10px;
-	column-gap: 10px;
+	padding-left: 25px;
+	column-gap: 15px;
 	// box-shadow: 0 2px 6px 0
 	// 	rgba(0, 0, 0, 0.2);
 	color: $gray;

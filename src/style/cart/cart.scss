@@ -1,0 +1,132 @@
+.cart {
+	display: grid;
+	border-radius: 20px;
+
+	grid-template-rows: [icon-s]40px[icon-e container-s] 1fr[container-e];
+	grid-template-columns: [s]1fr[e];
+	width: 400px;
+	row-gap: 15px;
+
+	justify-self: end;
+
+	&__icon {
+		grid-row: icon-s/icon-e;
+		grid-column: s/e;
+		background-color: $off-white;
+		width: 40px;
+		height: 40px;
+		border-radius: 7px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 25px;
+		justify-self: end;
+	}
+
+	&__container {
+		grid-row: container-s/container-e;
+		grid-column: s/e;
+
+		display: grid;
+		grid-template-rows: [title-s] 40px [title-e products-s]1fr[products-e];
+		grid-template-columns: [s]1fr [e];
+		height: 400px;
+
+		background-color: $off-white;
+		box-shadow: 0px 25px 40px
+			#1687d933;
+
+		border-radius: 7px;
+
+		&-title {
+			grid-row: title-s/title-e;
+			grid-column: s/e;
+			padding-left: 15px;
+			padding-top: 15px;
+		}
+		&-items {
+			grid-row: products-s/products-e;
+			grid-column: s/e;
+			padding: 15px;
+			height: 100%;
+
+			display: grid;
+			grid-template-rows: [items-s]1fr[items-e sub-s]110px[sub-e];
+
+			// grid-template-rows: ;
+		}
+	}
+}
+
+.cart-footer {
+	display: grid;
+	grid-row: sub-s/sub-e;
+	grid-template-rows: [line-s]10px[line-e count-s]35px[count-e checkout-s]30px[checkout-e];
+	grid-template-columns: [s]1fr [h] 1.2fr[m]2fr [e];
+
+	&__line {
+		border: 0px;
+		border-top: 1px solid
+			#dddddd;
+		grid-row: line-s/line-e;
+		grid-column: h/e;
+	}
+	&__subtotal {
+		display: grid;
+		grid-row: count-s/count-e;
+		grid-column: m/e;
+		grid-template-rows: [s]1fr[m] 1fr[e];
+		grid-template-columns: [s]1fr[m]1fr[e];
+
+		&-sub {
+			padding-left: 5px;
+			&-subtotal {
+				font-weight: 600;
+				font-size: 15px;
+			}
+		}
+		&-price {
+			padding-right: 5px;
+			font-weight: 600;
+			font-size: 22px;
+			justify-self: end;
+		}
+	}
+	&__checkout {
+		padding-top: 5px;
+		grid-column: m/e;
+		grid-row: checkout-s/
+			checkout-e;
+		&__bttn {
+			width: 100%;
+			height: 25px;
+			border-radius: 5px;
+			background-color: $light-blue;
+			border: none;
+			font-family: 'Glory';
+			transition: all 0.4s
+				ease-out;
+			cursor: pointer;
+			&:hover {
+				background-color: $main-blue;
+			}
+			&:active {
+				background-color: red;
+			}
+
+			font-size: 12px;
+			color: white;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
+.cart-title {
+	font-size: 18px;
+	font-weight: 500;
+	color: #2f3841;
+}

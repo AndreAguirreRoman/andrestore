@@ -15,6 +15,7 @@ class AccountInformationAddressDelete extends Component {
         return (
             <div className={`${className} addresses`}>
 
+
                 <div className='account-addresses__wrapper'>
                     <div className='account-addresses__wrapper-title'>{title}</div>
                     <div className='account-addresses__wrapper-data'>

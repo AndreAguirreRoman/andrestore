@@ -40,6 +40,7 @@ class Account extends Component {
 
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
+        this.props.getProducts();
     }
 
     renderContent() {
