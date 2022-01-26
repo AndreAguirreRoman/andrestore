@@ -1,7 +1,10 @@
 import {
     SET_USER_PURCHASES,
     SET_PURCHASE_DETAIL,
-    FETCH_USER_ADDRESS
+    FETCH_USER_ADDRESS,
+    SET_CART_PRODUCTS,
+    ADD_PRODUCT,
+    DELETE_PRODUCT
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -18,7 +21,8 @@ const INITIAL_STATE = {
         }
     },
     addresses: [],
-    users: []
+    users: [],
+    cart: []
 }
 
 
@@ -30,6 +34,27 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 purchases: action.payload
             }
+        case ADD_PRODUCT:
+            var cart = []
+
+            state.cart.map(product => {
+                cart.push(product)
+            })
+            cart.push({
+                _id: state.cart.length + 1,
+                product: action.payload
+            })
+
+            return {
+                ...state,
+                cart: cart
+            }
+        case DELETE_PRODUCT:
+            const filteredCart = state.cart.filter(product => {
+                product._id !== product._id;
+            });
+            console.log(filteredCart)
+
         case SET_PURCHASE_DETAIL:
             let purchaseDetail;
             state.purchases.map(purchase => {
@@ -40,6 +65,11 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 purchaseDetail
+            }
+        case SET_CART_PRODUCTS:
+            return {
+                ...state,
+                cart: action.payload
             }
         case FETCH_USER_ADDRESS:
             const addresses = action.payload;

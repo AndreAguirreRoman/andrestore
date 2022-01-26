@@ -80,7 +80,10 @@ class AllProducts extends Component {
         this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
+
     }
+
+
 
     render() {
 

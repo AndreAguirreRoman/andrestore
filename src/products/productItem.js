@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const ProductItem = props => {
     const { product_id, product_name, product_brand, product_price } = props.productItem;
+    const { onClick } = props;
+
 
     return (
         <div className='products-box'>
@@ -15,16 +18,23 @@ const ProductItem = props => {
                         <div className='products-box__main-item-wrapper__img'>
                             <img src='https://via.placeholder.com/191x188' />
                         </div>
-                        <div className='products-box__main-item-wrapper__info'>
-                            <div className='products-box__main-item-wrapper__info-brand'>{product_brand} {product_name}</div>
-                            <div className='products-box__main-item-wrapper__info-price'>${product_price}</div>
-                        </div>
-
                     </div>
                 </Link >
+                <div className='products-box__main-item-wrapper__info'>
+
+                    <Link to={`/product/${product_id}`} className='products-box__main-item-wrapper__info-link-brand'>{product_brand} {product_name}</Link>
+                    <Link to={`/product/${product_id}`} className='products-box__main-item-wrapper__info-link-price'>${product_price}</Link>
+
+                    <div onClick={onClick} className='products-box__main-item-wrapper__info-cart'>
+                        <i className="fas fa-cart-plus"></i>
+                    </div>
+                </div>
+
             </div>
 
-        </div >
+        </div>
+
+
 
     )
 }

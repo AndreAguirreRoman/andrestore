@@ -32,8 +32,9 @@
 		ease-in-out;
 	&:hover {
 		box-shadow: -4px 10px 20px
-			rgba(0, 0, 0, 0.3);
+			#1687d933;
 	}
+
 	&-item {
 		text-decoration: none;
 		color: $main-black;
@@ -49,20 +50,54 @@
 				background-color: $off-white;
 				border-radius: 0px 0px
 					7px 7px;
+				display: grid;
+				grid-template-columns: [info-s]150px[info-e bttn-s]1fr[bttn-e];
+				grid-template-rows: [s]1fr[m]1fr[e];
+
 				&-brand,
 				&-price {
 					display: flex;
 					padding-left: 5px;
+					text-decoration: none;
+					color: $main-black;
 				}
 				&-brand {
+					grid-row: s/m;
 					height: 20px;
 					overflow: hidden;
 					font-size: 1.6rem;
 				}
 				&-price {
+					grid-row: m/e;
 					height: 20px;
 					font-size: 1.4rem;
 					font-weight: 600;
+				}
+				&-cart {
+					grid-row: s/e;
+					grid-column: bttn-s/bttn-e;
+					border-left: 1px
+						solid #dddddd;
+					height: 25px;
+					padding-bottom: 5px;
+
+					display: flex;
+					align-self: center;
+
+					.fas {
+						color: $light-blue;
+						display: flex;
+						width: 100%;
+						align-self: center;
+						justify-content: center;
+						padding-top: 5px;
+						font-size: 13px;
+						transition: all
+							0.3s ease-in-out;
+						&:hover {
+							color: $dark-blue;
+						}
+					}
 				}
 			}
 		}

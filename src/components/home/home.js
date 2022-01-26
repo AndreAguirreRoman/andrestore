@@ -10,6 +10,7 @@ import PaymentInformation from './paymentInformation';
 import ProductItem from '../../products/productItem';
 import Footer from '../footer';
 import PageTitle from '../pageTitle';
+import ProductDesign from '../pages/productDesign';
 
 
 
@@ -105,21 +106,35 @@ class Home extends Component {
 
 
 
-        this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
+        this.props.setCartProducts();
+        this.props.getProducts();
+        // this.props.addProduct();
+
+
     }
+
+
 
 
     render() {
 
+        // const allProducts = this.props.products.map(productItem => {
+        //     return (
+        //         <ProductDesign key={productItem.product_id} className='all-products__wrapper-item design' productItem={productItem} />
+        //     )
+        // })
+
+
         const productsItems = this.props.productItems;
+        const cart = this.props.cart;
 
         const productsSmartphone = productsItems.products.filter((productItem) => productItem.product_category_name.includes('Smartphone'))
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} />
+                        <ProductDesign productItem={productItem} />
                     </div>
                 )
             })
@@ -127,7 +142,7 @@ class Home extends Component {
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} />
+                        <ProductDesign productItem={productItem} />
                     </div>
                 )
             })
@@ -135,7 +150,7 @@ class Home extends Component {
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} />
+                        <ProductDesign productItem={productItem} />
                     </div>
                 )
             })
@@ -143,7 +158,7 @@ class Home extends Component {
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} />
+                        <ProductDesign productItem={productItem} />
                     </div>
                 )
             })
@@ -151,7 +166,7 @@ class Home extends Component {
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} />
+                        <ProductDesign productItem={productItem} />
                     </div>
                 )
             })
@@ -159,19 +174,26 @@ class Home extends Component {
             .map(productItem => {
                 return (
                     <div className='products-items' key={productItem.product_id}>
-                        <ProductItem productItem={productItem} onClick={() => console.log(productItem.product_id)} />
+                        <ProductDesign productItem={productItem} onClick={() => console.log(productItem.product_id)} />
                     </div>
                 )
             })
 
         console.log(this.state);
         console.log("For debug", productsItems.products)
+        console.log("products of cart", cart)
+
         return (
+
 
 
             <div className='home'>
                 <div className='home__carousel'>
                     <CarouselPage className='home__carousel-module' />
+                </div>
+
+                <div className='home__cart'>
+                    {/* <ShopCart /> */}
                 </div>
                 <div className='home__products'>
                     <div className='home__products-payment'>
@@ -216,7 +238,8 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     const productItems = state.products;
-    return { productItems }
+    const cart = state.user.cart;
+    return { productItems, cart }
 }
 
 Home = connect(mapStateToProps, actions)(Home)

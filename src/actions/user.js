@@ -3,7 +3,10 @@ import axios from 'axios';
 import {
     SET_USER_PURCHASES,
     SET_PURCHASE_DETAIL,
-    FETCH_USER_ADDRESS
+    FETCH_USER_ADDRESS,
+    ADD_PRODUCT,
+    SET_CART_PRODUCTS,
+    DELETE_PRODUCT
 } from './types';
 
 
@@ -11,6 +14,27 @@ export function setPurchaseDetail(_id) {
     return ({
         type: SET_PURCHASE_DETAIL,
         payload: _id
+    })
+}
+
+export function setCartProducts() {
+    return ({
+        type: SET_CART_PRODUCTS,
+        payload: []
+    })
+}
+
+export function addProduct(product) {
+    return ({
+        type: ADD_PRODUCT,
+        payload: product
+    })
+}
+
+export function deleteProduct(product) {
+    return ({
+        type: DELETE_PRODUCT,
+        payload: product
     })
 }
 
