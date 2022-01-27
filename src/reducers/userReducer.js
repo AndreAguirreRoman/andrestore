@@ -4,7 +4,8 @@ import {
     FETCH_USER_ADDRESS,
     SET_CART_PRODUCTS,
     ADD_PRODUCT,
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    DELETE_ALL_PRODUCTS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -50,10 +51,23 @@ export default function (state = INITIAL_STATE, action) {
                 cart: cart
             }
         case DELETE_PRODUCT:
-            const filteredCart = state.cart.filter(product => {
-                product._id !== product._id;
-            });
-            console.log(filteredCart)
+            const cart = state.cart;
+            let filteredCart = cart.filter(product => action.payload !== product._id);
+            // let filteredCart = cart.filter(product => {
+            //     product.obj !== (action.payload + 1)
+            // })
+            console.log("payload", action.payload)
+            console.log("filteredCart", filteredCart)
+
+            return {
+                ...state,
+                cart: filteredCart
+            }
+        case DELETE_ALL_PRODUCTS:
+            return {
+                ...state,
+                cart: []
+            }
 
         case SET_PURCHASE_DETAIL:
             let purchaseDetail;

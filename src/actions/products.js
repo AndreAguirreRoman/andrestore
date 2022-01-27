@@ -7,7 +7,6 @@ export function getProducts() {
     return function (dispatch) {
         axios.get('https://andreaguirre.herokuapp.com/products')
             .then(response => {
-                console.log(response);
                 dispatch({
                     type: GET_PRODUCTS,
                     payload: response.data

@@ -11,7 +11,8 @@ import {
     getAddress,
     setCartProducts,
     addProduct,
-    deleteProduct
+    deleteProduct,
+    deleteAllProducts
 } from './user';
 
 import {
@@ -42,5 +43,6 @@ export {
     getAddress,
     setCartProducts,
     addProduct,
-    deleteProduct
+    deleteProduct,
+    deleteAllProducts
 }

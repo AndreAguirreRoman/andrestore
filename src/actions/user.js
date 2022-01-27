@@ -6,7 +6,8 @@ import {
     FETCH_USER_ADDRESS,
     ADD_PRODUCT,
     SET_CART_PRODUCTS,
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    DELETE_ALL_PRODUCTS
 } from './types';
 
 
@@ -31,9 +32,15 @@ export function addProduct(product) {
     })
 }
 
-export function deleteProduct(product) {
+export function deleteProduct(_id) {
     return ({
         type: DELETE_PRODUCT,
+        payload: _id
+    })
+}
+export function deleteAllProducts(product) {
+    return ({
+        type: DELETE_ALL_PRODUCTS,
         payload: product
     })
 }

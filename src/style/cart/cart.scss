@@ -2,6 +2,10 @@
 	display: grid;
 	border-radius: 20px;
 	position: fixed;
+	transform: translateY(
+			-120px
+		)
+		translateX(700px);
 
 	grid-template-rows: [icon-s]40px[icon-e container-s] 1fr[container-e];
 	grid-template-columns: [s]1fr[e];
@@ -44,6 +48,8 @@
 		&-title {
 			grid-row: title-s/title-e;
 			grid-column: s/e;
+			display: flex;
+			justify-content: space-between;
 			padding-left: 15px;
 			padding-top: 15px;
 		}
@@ -133,9 +139,27 @@
 		font-weight: 500;
 	}
 
+	color: #2f3841;
+}
+
+.cart-title__products {
+	&__title {
+		font-size: 18px;
+		font-weight: 500;
+		padding-top: 15px;
+	}
+
 	&__subtitle {
 		font-size: 12px;
 	}
 
-	color: #2f3841;
+	&__title,
+	&__subtitle {
+		padding-left: 25px;
+	}
+}
+
+.cart-title__delete {
+	padding-top: 5px;
+	padding-right: 15px;
 }

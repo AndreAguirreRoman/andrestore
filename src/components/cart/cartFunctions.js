@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import CartItems from './cartItems.js';
 
-export function CartTitle({ className, title, subtitle }) {
+export function CartTitle({ className, title, onClick }) {
+
+
     return (
         <div className={`${className} cart-title`}>
-            <div className='cart-title__title'>{title}</div>
-            <div className='cart-title__subtitle'>{subtitle}</div>
+            <div>
+                <div className='cart-title__title'>{title}</div>
+            </div>
+
+            <a className='cart-title__delete' onClick={onClick}>
+                Delete All
+            </a>
+
+        </div>
+    )
+}
+export function CartTitleProducts({ className, title, subtitle }) {
+
+
+    return (
+        <div className={`${className} cart-title__products`}>
+            <div>
+                <div className='cart-title__products__title'>{title}</div>
+                <div className='cart-title__products__subtitle'>{subtitle}</div>
+            </div>
         </div>
     )
 }
@@ -23,7 +45,7 @@ function CartFooter({ className, products }) {
     //     console.log("price", price)
     //     console.log("total price", totalPrice)
 
-    console.log("cartfooter", products)
+    // console.log("cartfooter", products)
     return (
         <div className={`${className} cart-footer`}>
             <hr className='cart-footer__line' />
@@ -44,30 +66,42 @@ function CartFooter({ className, products }) {
     )
 }
 
-export function CartProducts({ className, products, onClick }) {
+class CartProducts extends Component {
+
+    render() {
+        const { className } = this.props;
+
+        const products = this.props.cart
+
+        return (
+            <div className='cart-items'>
+                <div className={`${className} cart-items__products`}>
+                    <div className={`cart-items__products-item`} >
+                        {
+                            products.map(product => {
+                                return (
+                                    <CartItems className='cart-items__products-map' onClick={() => { this.props.deleteProduct(product._id) }} name={product.product.product_name} subtitle={product.product.product_brand} price={product.product.product_price} key={Math.random()} />
+                                )
+                            })
+                        }
+                    </div>
 
 
-    // console.log("cart-products", products)
+                    <CartFooter className={'cart-items__footer'} products={products} />
+                </div >
 
-    return (
-        <div className='cart-items'>
-            <div className={`${className} cart-items__products`}>
-                <div className={`cart-items__products-item`} >
-                    {
-                        products.map(product => {
-                            return (
-                                <CartItems className='cart-items__products-map' onClick={onClick} name={product.product.product_name} subtitle={product.product.product_brand} price={product.product.product_price} key={Math.random()} />
-                            )
-                        })
-                    }
-                </div>
-
-
-                <CartFooter className={'cart-items__footer'} products={products} />
             </div >
 
-        </div >
+        )
+    }
 
-    )
+}
+function mapStateToProps(state) {
+    const cart = state.user.cart;
+
+    return { cart }
 }
 
+CartProducts = connect(mapStateToProps, actions)(CartProducts);
+
+export default CartProducts;

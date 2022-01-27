@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { CartProducts, CartTitle } from './cartFunctions'
+import { CartTitle } from './cartFunctions'
+import CartProducts from './cartFunctions';
 import * as actions from '../../actions';
 
 class ShopCart extends Component {
@@ -16,15 +17,9 @@ class ShopCart extends Component {
 
     componentDidMount() {
         this.props.setCartProducts();
-        // this.props.deleteProduct();
     }
     render() {
-        console.log("hELLO", this.props.cart)
 
-        // const productId = this.props.cart.map(product => {
-        //     return product.product_id
-        // });
-        // console.log("productId", productId)
         return (
             <div className='cart'>
                 {this.state.showCart ?
@@ -33,8 +28,8 @@ class ShopCart extends Component {
                             <i className='fas fa-times-circle' />
                         </div>
                         <div className='cart__container'>
-                            <CartTitle title={'Shopping Cart'} className={'cart__container-title'} />
-                            <CartProducts className={'cart__container-items'} products={this.props.cart} />
+                            <CartTitle title={'Shopping Cart'} className={'cart__container-title'} products={this.props.cart} onClick={() => this.props.deleteAllProducts()} />
+                            <CartProducts className={'cart__container-items'} />
                         </div>
                     </div>
                     :
