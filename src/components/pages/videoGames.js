@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import axios from 'axios';
+import ShopCart from '../cart/shopCart'
 import ProductDesign from './productDesign';
 import PageTitle from '../pageTitle';
 
@@ -93,6 +93,9 @@ class VideoGames extends Component {
         return (
             <div className='filter'>
                 <PageTitle className={'filter__title'} title={'Video Games'} />
+                <div className='filter__cart'>
+                    <ShopCart className={'filter__cart-cart'} />
+                </div>
                 <div className='video-games'>
                     {videoGames}
                 </div>

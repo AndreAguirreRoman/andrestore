@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, FILTER_PRODUCTS_WITH_QUERY } from './types';
+import { GET_PRODUCTS, FILTER_PRODUCTS_WITH_QUERY, FILTER_PRODUCTS_WITH_CATEGORY_NAME } from './types';
 
 import axios from 'axios';
 

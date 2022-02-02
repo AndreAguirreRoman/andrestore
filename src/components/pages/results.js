@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+
+import ShopCart from '../cart/shopCart';
 import ProductDesign from './productDesign';
+
+import history from '../../history';
+
 
 
 
@@ -93,13 +98,24 @@ class Results extends Component {
         return (
             <div className='results'>
 
-
                 {
-                    this.props.filteredProducts.length ? [filteredProductss] : 'No results'
+                    this.props.filteredProducts.length ? <div className='results__item'>{filteredProductss}</div> : <div className='results__nothing'>
+                        <h1 className='results__nothing-title'>Oh no!</h1>
+                        <h2 className='results__nothing-subtitle'>Looks like we don't have that product yet. Try with something else...</h2>
+                        <div className='results__nothing-icon' onClick={() => history.push('/')}>
+                            <div className='results__nothing-icon__icon' > <i className="fas fa-shopping-bag"></i></div>
+                            <a className='results__nothing-icon__text'>Continue shopping</a>
+
+                        </div>
+                    </div>
+
                 }
 
-
+                <div className='results__shopcart'>
+                    <ShopCart className='results__shopcart-cart' />
+                </div>
             </div>
+
         )
     }
 }

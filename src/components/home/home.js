@@ -4,13 +4,14 @@ import React, { Component } from 'react';
 import CarouselPage from '../carousel/carousel';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 import PaymentInformation from './paymentInformation';
 import ProductItem from '../../products/productItem';
 import Footer from '../footer';
 import PageTitle from '../pageTitle';
 import ProductDesign from '../pages/productDesign';
+import ShopCart from '../cart/shopCart';
 
 
 
@@ -105,12 +106,10 @@ class Home extends Component {
 
 
 
-
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
-        this.props.setCartProducts();
         this.props.getProducts();
-        // this.props.addProduct();
+
 
 
     }
@@ -179,10 +178,6 @@ class Home extends Component {
                 )
             })
 
-        console.log(this.state);
-        console.log("For debug", productsItems.products)
-        console.log("products of cart", cart)
-
         return (
 
 
@@ -193,12 +188,15 @@ class Home extends Component {
                 </div>
 
                 <div className='home__cart'>
-                    {/* <ShopCart /> */}
+                    <ShopCart className='home__cart-cart' />
+
                 </div>
                 <div className='home__products'>
                     <div className='home__products-payment'>
                         <PaymentInformation className='home__products-payment__info' />
                         <div className='home__products-main'>
+
+
 
                             <div className='home__products-main-wrapper'>
                                 <PageTitle className='home__products-main-wrapper-title' title={"Phones"} />

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 import CartItems from './cartItems.js';
+import history from '../../history';
 
 export function CartTitle({ className, title, onClick }) {
 
@@ -38,14 +39,7 @@ export function CartTitleProducts({ className, title, subtitle }) {
 function CartFooter({ className, products }) {
     let count = products.length;
     let totalPrice = products.reduce((total, currentValue) => total = total + currentValue.product.product_price, 0);
-    // let price = products.map(product => {
-    //         return (
-    //             product.product_price)
-    //     });
-    //     console.log("price", price)
-    //     console.log("total price", totalPrice)
 
-    // console.log("cartfooter", products)
     return (
         <div className={`${className} cart-footer`}>
             <hr className='cart-footer__line' />
@@ -59,7 +53,7 @@ function CartFooter({ className, products }) {
 
 
             <div className='cart-footer__checkout'>
-                <button className='cart-footer__checkout__bttn'>Checkout</button>
+                <button className='cart-footer__checkout__bttn' onClick={() => history.push('/order/review')}>Checkout</button>
             </div>
 
         </div>

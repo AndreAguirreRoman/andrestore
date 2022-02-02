@@ -21,8 +21,6 @@ class Navbar extends Component {
                         )
                     })
                 }
-
-
             </div >
         )
     }
@@ -34,6 +32,8 @@ function mapStateToProps(state) {
         navbarLinks, onClick
     }
 }
+
+
 
 Navbar = connect(mapStateToProps, actions)(Navbar)
 

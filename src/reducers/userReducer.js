@@ -36,19 +36,19 @@ export default function (state = INITIAL_STATE, action) {
                 purchases: action.payload
             }
         case ADD_PRODUCT:
-            var cart = []
+            var newCart = []
 
             state.cart.map(product => {
-                cart.push(product)
+                newCart.push(product)
             })
-            cart.push({
+            newCart.push({
                 _id: state.cart.length + 1,
                 product: action.payload
             })
 
             return {
                 ...state,
-                cart: cart
+                cart: newCart
             }
         case DELETE_PRODUCT:
             const cart = state.cart;

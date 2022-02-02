@@ -23,7 +23,7 @@ import {
 import {
     getProducts,
     getProductsWithQuery,
-    filterProducts
+    filterProducts,
 } from './products';
 
 export {

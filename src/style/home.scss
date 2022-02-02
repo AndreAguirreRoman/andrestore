@@ -14,6 +14,17 @@
 	grid-row: content-s/content-e;
 	grid-column: extra-s/extra-e;
 
+	&__cart {
+		grid-row: product-s/product-e;
+		grid-column: e/extra-e;
+		&-cart {
+			transform: translateX(
+					-300px
+				)
+				translateY(-280px);
+		}
+	}
+
 	&__carousel {
 		grid-row: carousel-s/carousel-e;
 		grid-column: extra-s/extra-e;
@@ -22,6 +33,11 @@
 		grid-row: product-s/product-e;
 		grid-column: s/e;
 		padding-top: 40px;
+
+		// &-main__cart {
+		// 	transform: translateX()
+		// 		translateY();
+		// }
 	}
 	&__footer {
 		padding-top: 60px;

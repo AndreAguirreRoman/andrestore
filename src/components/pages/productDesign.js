@@ -9,10 +9,9 @@ import { connect } from 'react-redux';
 class ProductDesign extends Component {
     handleAddToCart = () => {
         this.props.addProduct(this.props.productItem)
-        console.log(this.props.cart)
-
-
-
+        if (document.getElementById('shop-cart').classList.contains('cart-hidden')) {
+            document.getElementById('shop-cart').classList.remove('cart-hidden');
+        }
     }
 
 

@@ -75,13 +75,12 @@ class AllProducts extends Component {
             },
         ]
 
-
-
         this.props.getProducts();
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
 
     }
+
 
 
 
@@ -96,7 +95,10 @@ class AllProducts extends Component {
         return (
             <div className='filter'>
                 <PageTitle className={'filter__title'} title={'All products'} />
-                <ShopCart />
+                <div className='filter__cart'>
+                    <ShopCart className={'filter__cart-cart'} />
+                </div>
+
                 <div className='all-products'>
                     {allProducts}
                 </div>
@@ -107,7 +109,8 @@ class AllProducts extends Component {
 function mapStateToProps(state) {
     const { products } = state.products
     const { categories } = state.shop;
-    return { products, categories }
+    const { cart } = state.user.cart;
+    return { products, categories, cart }
 }
 
 AllProducts = connect(mapStateToProps, actions)(AllProducts);

@@ -1,6 +1,7 @@
 import {
     FILTER_PRODUCTS_WITH_QUERY,
     GET_PRODUCTS,
+
 } from '../actions/types';
 
 
@@ -19,7 +20,6 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 products: action.payload
             }
-
         case FILTER_PRODUCTS_WITH_QUERY:
             var filteredProducts = [];
             state.products.map((product) => {

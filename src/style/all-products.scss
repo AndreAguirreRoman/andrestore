@@ -8,6 +8,14 @@
 		padding-left: 22px;
 		justify-content: start;
 	}
+
+	&__cart {
+		background-color: blue;
+		position: fixed;
+		transform: translateX(
+			720px
+		);
+	}
 }
 
 .all-products,

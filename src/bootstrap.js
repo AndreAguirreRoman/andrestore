@@ -36,7 +36,7 @@ import PurchaseHistory from "./components/account/purchaseHistory";
 import AccountInformation from "./components/account/accountInformation";
 import AddressPage from "./components/account/addressPage";
 import Results from "./components/pages/results";
-
+import Order from "./components/order/orderReview";
 
 function main() {
   ReactDOM.render(
@@ -60,8 +60,10 @@ function main() {
             <Route exact path="/product/:slug" exact component={ProductDetail} />
             <Route path='/account' exact component={AccountInformation} />
             <Route path='/orders' exact component={PurchaseHistory} />
+            <Route path='/order/review' exact component={Order} />
             <Route path='/account/address' exact component={AddressPage} />
             <Route path='/products/search' exact component={Results} />
+
           </Switch>
         </Layout>
       </Router>
