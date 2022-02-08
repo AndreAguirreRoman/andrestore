@@ -5,7 +5,9 @@ import {
     SET_CART_PRODUCTS,
     ADD_PRODUCT,
     DELETE_PRODUCT,
-    DELETE_ALL_PRODUCTS
+    DELETE_ALL_PRODUCTS,
+    FETCH_USER_NAME,
+    MAKE_PURCHASE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -22,8 +24,9 @@ const INITIAL_STATE = {
         }
     },
     addresses: [],
-    users: [],
-    cart: []
+    user: [],
+    cart: [],
+    creditCard: {}
 }
 
 
@@ -90,6 +93,17 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 addresses
+            }
+        case FETCH_USER_NAME:
+            const user = action.payload;
+            return {
+                ...state,
+                user
+            }
+        case MAKE_PURCHASE:
+            return {
+                ...state,
+                creditCard: action.payload
             }
 
         default: return state;

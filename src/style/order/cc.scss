@@ -1,0 +1,164 @@
+.cc {
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+
+	&-payment__title {
+		display: grid;
+		& h1 {
+			font-size: 16px;
+			font-weight: 500;
+			margin-left: 100px;
+		}
+
+		&-icon {
+			display: flex;
+			justify-content: center;
+			font-size: 30px;
+			column-gap: 10px;
+			color: $dark-blue;
+		}
+	}
+}
+
+.cc-form {
+	display: grid;
+	grid-template-columns: 1fr;
+	height: 150px;
+
+	&__left {
+		width: 40%;
+	}
+
+	&__right {
+		width: 60%;
+	}
+
+	&__bottom-secure {
+		font-size: 12px;
+		transform: translateX(
+				290px
+			)
+			translateY(-95px);
+	}
+
+	&__bottom-secure__icon {
+		font-size: 17px;
+		padding-right: 2px;
+	}
+
+	&__fields {
+		height: 180px;
+	}
+
+	&__fields-input {
+		display: grid;
+		grid-template-rows: [s]1fr[m].6fr[e];
+		grid-template-columns: [s]1fr[m]1fr[e];
+
+		.cc-input__label-left {
+			grid-column: s/m;
+			grid-row: m/e;
+			justify-self: center;
+		}
+		.cc-input__input-left {
+			justify-self: center;
+			grid-column: s/e;
+			grid-row: s/m;
+		}
+
+		.cc-input__label-right {
+			grid-column: s/m;
+			grid-row: m/e;
+			justify-self: center;
+		}
+
+		.cc-input__input-right {
+			justify-self: center;
+			grid-column: s/e;
+			grid-row: s/m;
+		}
+
+		.cc-date__label {
+			grid-column: s/m;
+			grid-row: m/e;
+			justify-self: center;
+			padding-left: 8px;
+		}
+		.cc-date__input {
+			justify-self: center;
+			grid-column: s/m;
+			grid-row: s/m;
+		}
+
+		.cc-date__input-text {
+			justify-self: center;
+			grid-column: s/m;
+			grid-row: s/m;
+			margin-left: 120px;
+		}
+		.cv-label {
+			grid-column: m/e;
+			grid-row: m/e;
+			transform: translateX(
+					-148px
+				)
+				translateY(-50px);
+		}
+		.cv {
+			grid-column: m/e;
+			grid-row: s/m;
+			transform: translateX(
+					-130px
+				)
+				translateY(-50px);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		column-gap: 5px;
+
+		&__back button {
+			height: 30px;
+			width: 100px;
+			border-radius: 5px;
+			background-color: $light-blue;
+			border: none;
+			font-family: 'Glory';
+			transition: all 0.4s
+				ease-out;
+			cursor: pointer;
+			&:hover {
+				background-color: $main-blue;
+			}
+			&:active {
+				background-color: $button;
+			}
+
+			font-size: 16px;
+			color: white;
+		}
+		&__pay button {
+			height: 30px;
+			width: 100px;
+			border-radius: 5px;
+			background-color: $light-blue;
+			border: none;
+			font-family: 'Glory';
+			transition: all 0.4s
+				ease-out;
+			cursor: pointer;
+			&:hover {
+				background-color: $main-blue;
+			}
+			&:active {
+				background-color: $button;
+			}
+
+			font-size: 16px;
+			color: white;
+		}
+	}
+}

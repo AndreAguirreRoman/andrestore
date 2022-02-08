@@ -7,7 +7,9 @@ import {
     ADD_PRODUCT,
     SET_CART_PRODUCTS,
     DELETE_PRODUCT,
-    DELETE_ALL_PRODUCTS
+    DELETE_ALL_PRODUCTS,
+    FETCH_USER_NAME,
+    MAKE_PURCHASE
 } from './types';
 
 
@@ -45,10 +47,17 @@ export function deleteAllProducts(product) {
     })
 }
 
+export function purchase(fields) {
+    return ({
+        type: MAKE_PURCHASE,
+        payload: fields
+    })
+}
+
 
 export function getAddress() {
     return function (dispatch) {
-        axios.get('https://andreaguirre.herokuapp.com/user/addresses')
+        axios.get('https://andreaguirre.herokuapp.com/user/address/1')
             .then(response => {
                 console.log("dispatcher", response.data);
                 dispatch({
@@ -61,6 +70,23 @@ export function getAddress() {
             })
     }
 }
+
+export function fetchUserName() {
+    return function (dispatch) {
+        axios.get('https://andreaguirre.herokuapp.com/user/1')
+            .then(response => {
+                console.log("user", response.data);
+                dispatch({
+                    type: FETCH_USER_NAME,
+                    payload: response.data
+                })
+            }).catch(error => {
+                console.log(error)
+            })
+    }
+}
+
+
 
 
 export function fetchUserPurchases() {

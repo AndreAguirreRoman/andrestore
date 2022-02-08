@@ -24,6 +24,69 @@ export class FormInput extends Component {
 
     }
 }
+export class CreditCardInputLeft extends Component {
+    render() {
+        const { className, title, type, placeholder, input, id, maxLength } = this.props;
+        return (
+            <div className={`${className} cc-input-left cc-form__fields-input`}>
+                <label className='cc-input__label-left'>{title} </label>
+                <input className={`cc-input__input-left`} maxLength={maxLength} id={id} type={type} placeholder={placeholder} {...input} />
+            </div>
+        )
+
+    }
+}
+export class CreditCardInputRight extends Component {
+    render() {
+        const { className, title, type, placeholder, input, id, maxLength } = this.props;
+        return (
+            <div className={`${className} cc-input-right cc-form__fields-input`}>
+                <label className='cc-input__label-right '>{title} </label>
+                <input className={`cc-input__input-right`} id={id} maxLength={maxLength} type={type} placeholder={placeholder} {...input} />
+            </div>
+        )
+
+    }
+}
+export class CreditCardInputCV extends Component {
+    render() {
+        const { className, title, type, placeholder, input, id, maxLength } = this.props;
+        return (
+            <div className={`${className} cc-input-right cc-form__fields-input`}>
+                <label className='cc-input__label-right cv-label'>{title} </label>
+                <input className={`cc-input__input-right cv`} maxLength={maxLength} id={id} type={type} placeholder={placeholder} {...input} />
+            </div>
+        )
+
+    }
+}
+
+export class CreditCardDate extends Component {
+    render() {
+        const { className, title, type, placeholder, id, input } = this.props;
+        return (
+            <div className={`${className} cc-date cc-form__fields-input`}>
+                <label className='cc-date__label'>{title}</label>
+                <select className='cc-date__input'>
+                    <option value={null}>MM</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <input className={`cc-date__input-text`} id={id} maxLength={2} type={type} placeholder={placeholder} {...input} />
+            </div>
+        )
+    }
+}
 
 export class AddressInput extends Component {
     render() {

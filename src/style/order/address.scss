@@ -1,0 +1,50 @@
+.address {
+	display: grid;
+	grid-template-rows: [title-s] 80px[title-e receiver-s]1fr[receiver-e email-s] 1fr[email-e ship-s] 1fr [ship-e];
+	grid-template-columns: 100px [s] 1fr [e] 100px;
+
+	&__title {
+		font-size: 16px;
+		grid-row: title-s/title-e;
+		grid-column: s/e;
+	}
+
+	&__receiver {
+		grid-row: receiver-s/receiver-e;
+		grid-column: s/e;
+		border-top: 1px solid
+			#dedede;
+		padding-top: 10px;
+
+		&-text {
+			font-size: 15px;
+			border-bottom: 1px solid
+				#dedede;
+			padding-bottom: 10px;
+		}
+
+		h1 {
+			font-size: 12px;
+		}
+	}
+
+	&__email {
+		grid-row: email-s/email-e;
+		grid-column: s/e;
+		padding-top: 10px;
+
+		h1 {
+			font-size: 12px;
+		}
+	}
+
+	&__ships {
+		grid-row: ship-s/ship-e;
+		grid-column: s/e;
+		padding-top: 10px;
+
+		h1 {
+			font-size: 12px;
+		}
+	}
+}

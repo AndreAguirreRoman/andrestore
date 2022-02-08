@@ -1,0 +1,70 @@
+.payment {
+	width: 100%;
+	background-color: $off-white;
+	height: 600px;
+	border-radius: 5px;
+}
+
+.payment__form-cc {
+	height: 250px;
+	grid-row: m/e;
+	padding-top: 30px;
+}
+
+.cc {
+	display: flex;
+	justify-self: center;
+
+	&-card {
+		padding-left: 10px;
+	}
+
+	&-fields {
+		display: flex;
+		align-self: center;
+		width: 258px;
+		&-form {
+			display: grid;
+			height: 100px;
+			width: 100%;
+			justify-content: center;
+
+			grid-template-rows: 0px[top-s]1fr[top-e m-s]1fr[m-e b-s]1fr[b-e];
+			grid-template-columns: 15px[s]1fr [m] 0.8fr [e];
+			row-gap: 5px;
+
+			&__number,
+			&__name,
+			&__date,
+			&__cv {
+				padding-left: 10px;
+				border-radius: 5px;
+				background-color: $off-white;
+				border: 0.5px solid
+					#808080;
+			}
+
+			&__number {
+				width: 220px;
+				grid-row: top-s/top-e;
+				grid-column: s/e;
+			}
+			&__name {
+				width: 220px;
+				grid-row: m-s/m-e;
+				grid-column: s/e;
+			}
+			&__date {
+				width: 130px;
+				grid-row: b-s/b-e;
+				grid-column: s/m;
+			}
+			&__cv {
+				margin-left: 10px;
+				width: 67px;
+				grid-row: b-s/b-e;
+				grid-column: m/e;
+			}
+		}
+	}
+}

@@ -17,8 +17,11 @@ class Order extends Component {
         return (
             <div className='order-summary'>
                 <PageTitle className='order-summary__title' title='Order summary' />
-                <OrderSummaryForm className='order-summary__form' />
-                <Payment />
+                <div className='order-summary__info'>
+                    <OrderSummaryForm className='order-summary__info-form' />
+                    <Payment className='order-summary__info-payment' />
+                </div>
+
                 <Footer className='order-summary__footer' />
             </div>
         )

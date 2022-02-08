@@ -3,13 +3,33 @@
 	grid-column: s/e;
 
 	&__footer {
-		padding-top: 40px;
+		padding-top: 100px;
+		padding-bottom: 40px;
+	}
+
+	&__info {
+		display: grid;
+		grid-template-columns: [s]1.2fr[m]1fr[e];
+		grid-template-rows: [s]1fr[e];
+		width: 100%;
+
+		&-form {
+			grid-column: m/e;
+			grid-row: s/e;
+			width: 425px;
+		}
+		&-payment {
+			display: grid;
+			grid-template-rows: [s]250px[m]250px[e] 100px[buttons];
+			grid-column: s/m;
+			grid-row: s/e;
+		}
 	}
 }
 
 .order-summary-products {
 	display: grid;
-	height: 100%;
+	position: relative;
 	grid-template-columns: [extra-s]15px[s]1fr[e]15px[extra-e];
 	grid-template-rows: [items-s]3fr[items-e bttns-s]90px[bttns-e];
 
@@ -19,7 +39,7 @@
 		grid-template-rows: [title-s] 50px[title-e products-s]1fr[products-e total-s] 120px [ total-e ftr-s] 15px[ftr-e];
 		grid-row: items-s/items-e;
 		grid-column: s/e;
-		width: 40%;
+		width: 100%;
 		background-color: $off-white;
 		border-radius: 5px;
 

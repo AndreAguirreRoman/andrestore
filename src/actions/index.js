@@ -12,7 +12,9 @@ import {
     setCartProducts,
     addProduct,
     deleteProduct,
-    deleteAllProducts
+    deleteAllProducts,
+    fetchUserName,
+    purchase
 } from './user';
 
 import {
@@ -44,5 +46,7 @@ export {
     setCartProducts,
     addProduct,
     deleteProduct,
-    deleteAllProducts
+    deleteAllProducts,
+    fetchUserName,
+    purchase
 }

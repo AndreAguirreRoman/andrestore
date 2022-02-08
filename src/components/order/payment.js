@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
+import { Button, Collapse } from 'react-bootstrap';
 
 import AddressSummary from './addressSummary';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import CreditCard from './creditCard';
-import Buttons from './buttons';
 
 
 class Payment extends Component {
 
+    componentDidMount() {
+        this.props.getAddress();
+        this.props.fetchUserName();
+    }
+
     render() {
         const { className } = this.props;
+        const address = this.props.address.addresses
+        const user = this.props.user
+        console.log("user", user)
         return (
             <div className={`${className} payment`}>
                 <div className='payment__form'>
-                    <AddressSummary className='payment__form-address' />
+                    <AddressSummary className='payment__form-address' user={user} address={address} />
                     <CreditCard className='payment__form-cc' />
-                    <Buttons className='payment__form-buttons' />
                 </div>
+
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    return state
+    const address = state.addresses
+    const user = state.user.user
+    return { address, user }
 }
 
 Payment = connect(mapStateToProps, actions)(Payment);
