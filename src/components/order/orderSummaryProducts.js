@@ -3,7 +3,7 @@ import React from 'react';
 import history from '../../history';
 import PageTitle from '../pageTitle';
 export function OrderSummaryProducts({ className, products }) {
-    console.log("orderProducts", products)
+    // console.log("orderProducts", products)
 
     let subtotalPrice = products.reduce((total, currentValue) => total = total + currentValue.product.product_price, 0);
     let totalPrice = subtotalPrice;

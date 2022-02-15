@@ -4,7 +4,7 @@ import PageTitle from '../pageTitle';
 class AddressSummary extends Component {
     render() {
         const { className, address, user } = this.props;
-        console.log("mamafoca", address)
+        // console.log("mamafoca", address)
         return (
             <div className={`${className} address`}>
                 <PageTitle className='address__title' title={"Your Information"} />

@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
         case SET_SHOP_CATEGORIES:
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
                 ...state,
                 categories: action.payload

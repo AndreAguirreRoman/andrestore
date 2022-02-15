@@ -38,7 +38,7 @@
 		transform: translateX(
 				290px
 			)
-			translateY(-95px);
+			translateY(-140px);
 	}
 
 	&__bottom-secure__icon {
@@ -82,7 +82,7 @@
 			grid-column: s/m;
 			grid-row: m/e;
 			justify-self: center;
-			padding-left: 8px;
+			padding-left: 120px;
 		}
 		.cc-date__input {
 			justify-self: center;
@@ -102,7 +102,7 @@
 			transform: translateX(
 					-148px
 				)
-				translateY(-50px);
+				translateY(-100px);
 		}
 		.cv {
 			grid-column: m/e;
@@ -110,7 +110,7 @@
 			transform: translateX(
 					-130px
 				)
-				translateY(-50px);
+				translateY(-100px);
 		}
 	}
 
@@ -161,4 +161,17 @@
 			color: white;
 		}
 	}
+}
+.cc-year {
+	transform: translateY(-50px)
+		translateX(45px);
+	width: 50px;
+}
+
+.cc-date {
+	transform: translateX(
+		-20px
+	);
+	z-index: 1;
+	width: 100px;
 }

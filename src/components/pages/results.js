@@ -122,7 +122,7 @@ class Results extends Component {
 
 function mapStateToProps(state) {
     const { products, filteredProducts } = state.products
-    console.log(filteredProducts)
+    // console.log(filteredProducts)
     return {
         products,
         filteredProducts

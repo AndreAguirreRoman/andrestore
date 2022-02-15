@@ -20,7 +20,6 @@ class ShopCart extends Component {
 
     handleOutsideClick = () => {
         if (document.getElementById('shop-cart').classList.contains('cart-hidden')) {
-            console.log("good job")
         } else {
             document.getElementById('shop-cart').classList.add('cart-hidden');
         }

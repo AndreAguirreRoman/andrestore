@@ -24,7 +24,6 @@ import Home from "./components/home/home";
 import Products from "./components/uploaders/products";
 import User from "./components/uploaders/user";
 import ProductDetail from "./products/productDetail";
-import Account from "./components/account/account";
 import AllProducts from "./components/pages/allProducts";
 import Headphones from "./components/pages/headphones";
 import Tv from "./components/pages/tv";
@@ -37,6 +36,7 @@ import AccountInformation from "./components/account/accountInformation";
 import AddressPage from "./components/account/addressPage";
 import Results from "./components/pages/results";
 import Order from "./components/order/orderReview";
+import Checkout from './components/order/checkout';
 
 function main() {
   ReactDOM.render(
@@ -61,6 +61,7 @@ function main() {
             <Route path='/account' exact component={AccountInformation} />
             <Route path='/orders' exact component={PurchaseHistory} />
             <Route path='/order/review' exact component={Order} />
+            <Route path='/order/review/bill' exact component={Checkout} />
             <Route path='/account/address' exact component={AddressPage} />
             <Route path='/products/search' exact component={Results} />
 

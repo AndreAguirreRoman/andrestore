@@ -7,7 +7,6 @@ function FormSearchBar(props) {
     return (
         <input className={`${props.className} form-search-bar`} {...props.input} type='text' placeholder={`${props.placeholder}`} />
     )
-    console.log(...props.input)
 }
 
 {/* <i class="fas fa-search"></i> */ }

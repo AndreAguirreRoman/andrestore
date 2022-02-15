@@ -12,7 +12,7 @@ import Footer from '../footer';
 
 class Order extends Component {
     render() {
-        console.log(this.props.cart)
+        // console.log(this.props.cart)
 
         return (
             <div className='order-summary'>

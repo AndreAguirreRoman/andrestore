@@ -59,8 +59,6 @@ export default function (state = INITIAL_STATE, action) {
             // let filteredCart = cart.filter(product => {
             //     product.obj !== (action.payload + 1)
             // })
-            console.log("payload", action.payload)
-            console.log("filteredCart", filteredCart)
 
             return {
                 ...state,
@@ -101,6 +99,7 @@ export default function (state = INITIAL_STATE, action) {
                 user
             }
         case MAKE_PURCHASE:
+            console.log(state)
             return {
                 ...state,
                 creditCard: action.payload

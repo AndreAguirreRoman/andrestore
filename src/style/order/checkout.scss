@@ -1,0 +1,87 @@
+.checkout {
+	padding-top: 40px;
+	grid-column: s/e;
+	grid-row: content-s/content-e;
+
+	&__wrapper {
+		background-color: white;
+		display: grid;
+		grid-template-columns: 40px[s]1fr[e]40px;
+		grid-template-rows: [title-s]1fr[title-e content-s]1fr[content-e buttons-s]1fr[buttons-e];
+		border-radius: 5px;
+
+		&-title {
+			grid-row: title-s/title-e;
+			grid-column: s/e;
+			justify-self: center;
+		}
+		&-content {
+			grid-row: content-s/content-e;
+			grid-column: s/e;
+			justify-self: center;
+			font-size: 2rem;
+			display: grid;
+			row-gap: 10px;
+
+			&__name {
+				display: flex;
+				column-gap: 50px;
+				.fas {
+					width: 20px;
+				}
+			}
+			&__number {
+				display: flex;
+				column-gap: 50px;
+				.fas {
+					width: 20px;
+				}
+			}
+			&__delivery {
+				display: flex;
+				column-gap: 50px;
+				.fas {
+					width: 20px;
+				}
+			}
+			&__price {
+				display: flex;
+				column-gap: 50px;
+				.fas {
+					width: 20px;
+				}
+			}
+		}
+		&-button {
+			grid-row: buttons-s/button-e;
+			grid-column: s/e;
+			justify-self: center;
+
+			&-btn {
+				margin-top: 40px;
+				height: 38px;
+				width: 280px;
+				border-radius: 5px;
+				background-color: $light-blue;
+				border: none;
+				font-family: 'Glory';
+				transition: all 0.4s
+					ease-out;
+				cursor: pointer;
+				&:hover {
+					background-color: $main-blue;
+				}
+				&:active {
+					background-color: $button;
+				}
+
+				font-size: 16px;
+				color: white;
+
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+	}
+}

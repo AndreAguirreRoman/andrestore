@@ -59,7 +59,6 @@ export function getAddress() {
     return function (dispatch) {
         axios.get('https://andreaguirre.herokuapp.com/user/address/1')
             .then(response => {
-                console.log("dispatcher", response.data);
                 dispatch({
                     type: FETCH_USER_ADDRESS,
                     payload: response.data
@@ -75,7 +74,6 @@ export function fetchUserName() {
     return function (dispatch) {
         axios.get('https://andreaguirre.herokuapp.com/user/1')
             .then(response => {
-                console.log("user", response.data);
                 dispatch({
                     type: FETCH_USER_NAME,
                     payload: response.data

@@ -55,7 +55,6 @@ function CartFooter({ className, products }) {
             <div className='cart-footer__checkout'>
                 <button className='cart-footer__checkout__bttn' onClick={() => history.push('/order/review')}>Checkout</button>
             </div>
-
         </div>
     )
 }

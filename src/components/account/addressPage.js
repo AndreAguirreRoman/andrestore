@@ -43,7 +43,7 @@ class AddressPage extends Component {
         }).catch(error => {
             console.log("error", error)
         })
-        console.log("working?")
+        // console.log("working?")
         this.setState({ showAddress: false })
     }
 

@@ -19,7 +19,7 @@ class Payment extends Component {
         const { className } = this.props;
         const address = this.props.address.addresses
         const user = this.props.user
-        console.log("user", user)
+        // console.log("user", user)
         return (
             <div className={`${className} payment`}>
                 <div className='payment__form'>

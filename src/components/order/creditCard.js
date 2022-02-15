@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import history from '../../history';
 
 import CreditCardForm from './creditCardForm';
 
@@ -10,8 +11,8 @@ class CreditCard extends Component {
 
     onSubmit = (fields) => {
         this.props.purchase(fields)
+        history.push('/order/review/bill')
     }
-
 
     render() {
         const { className } = this.props;
@@ -28,7 +29,7 @@ class CreditCard extends Component {
                     </div>
                 </div>
 
-                <CreditCardForm onSubmit={this.onSubmit} className='cc-payment__cc' />
+                <CreditCardForm onSubmit={this.onSubmit} onClick={this.onClick} className='cc-payment__cc' />
             </div>
         )
     }

@@ -43,7 +43,7 @@ class AccountInformation extends Component {
                 this.setState({
                     userName: { ...response.data }
                 })
-                console.log("hello", response)
+
             })
             .catch(error => {
                 console.log(error)
@@ -123,27 +123,27 @@ class AccountInformation extends Component {
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
         this.props.getAddress();
-        // this.getAddresses();
         this.getUserName();
     }
 
     // const computers = this.props.products.filter((productItem) => productItem.product_category_name.includes('Computer')).map(productItem => {
     renderAddress = function () {
-        const addressesItems = this.props.addresses.addresses.filter((addressesItem) => addressesItem.address_user_id === 1).map((addressesItem) => {
-            return (
-                <AccountInformationAddress
-                    key={addressesItem.address_id}
-                    className='account-information__address-data'
-                    title='Address'
-                    number={addressesItem.address_number}
-                    street={addressesItem.address_street}
-                    city={addressesItem.address_city}
-                    state={addressesItem.address_state}
-                    zip={addressesItem.address_zip}
-                    link='account/address' />
-            )
-        })
-        return addressesItems;
+        const addressesItems = this.props.addresses.addresses;
+        // console.log("addressinfo", addressesItems)
+        return (
+            <AccountInformationAddress
+                key={addressesItems.address_id}
+                className='account-information__address-data'
+                title='Address'
+                number={addressesItems.address_number}
+                street={addressesItems.address_street}
+                city={addressesItems.address_city}
+                state={addressesItems.address_state}
+                zip={addressesItems.address_zip}
+                link='account/address' />
+        )
+
+
     }
 
 
@@ -151,7 +151,7 @@ class AccountInformation extends Component {
         const { user_first_name, user_last_name, user_email } = this.state.userName;
         // const address { address_number, address_street, address_city, address_state, address_zip } = this.props.addresses;
 
-        console.log("data",)
+        // console.log("data",)
         return (
             <div className='account-information'>
                 <PageTitle className='account-information__title' title='Account & Information' />

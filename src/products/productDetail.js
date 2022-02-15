@@ -122,8 +122,8 @@ class ProductDetail extends Component {
 
     render() {
         const { product_brand, product_name, product_description, product_price } = this.state.productItem;
-        console.log("currentId", this.state.productId)
-        console.log("state", this.state.productItem)
+        // console.log("currentId", this.state.productId)
+        // console.log("state", this.state.productItem)
         return (
             <div className='product-render'>
                 <div className='product-render__wrapper'>
