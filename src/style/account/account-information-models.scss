@@ -92,14 +92,29 @@
 
 			width: 900px;
 		}
-		&__delete {
-			align-self: center;
-			border: none;
-			color: black;
-			transition: all 0.3s
-				ease-in-out;
-			&:hover {
-				color: red;
+		&__button {
+			display: flex;
+			column-gap: 10px;
+			padding-right: 10px;
+			&-delete {
+				align-self: center;
+				border: none;
+				color: black;
+				transition: all 0.3s
+					ease-in-out;
+				&:hover {
+					color: red;
+				}
+			}
+			&-edit {
+				align-self: center;
+				border: none;
+				color: black;
+				transition: all 0.3s
+					ease-in-out;
+				&:hover {
+					color: red;
+				}
 			}
 		}
 	}

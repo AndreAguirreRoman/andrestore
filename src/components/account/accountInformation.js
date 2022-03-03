@@ -7,8 +7,8 @@ import axios from 'axios';
 import PageTitle from '../pageTitle';
 import Footer from '../footer';
 import AccountInformationItem from './accountInformationItem';
-import AccountInformationAddress from './accountInformationAddress';
-import AccountInformationForm from './accountInformationForm';
+import AccountAddress from './accountAddress';
+
 import AccountInformationFormPassword from './accountInformationPassword';
 
 class AccountInformation extends Component {
@@ -123,15 +123,16 @@ class AccountInformation extends Component {
         this.props.setHeaderLinks(headerLinks)
         this.props.setNavbarLinks(navbarLinks)
         this.props.getAddress();
-        this.getUserName();
+        this.props.fetchUserName();
+
     }
 
     // const computers = this.props.products.filter((productItem) => productItem.product_category_name.includes('Computer')).map(productItem => {
     renderAddress = function () {
-        const addressesItems = this.props.addresses.addresses;
+        const addressesItems = this.props.addresses;
         // console.log("addressinfo", addressesItems)
         return (
-            <AccountInformationAddress
+            <AccountAddress
                 key={addressesItems.address_id}
                 className='account-information__address-data'
                 title='Address'
@@ -148,7 +149,7 @@ class AccountInformation extends Component {
 
 
     render() {
-        const { user_first_name, user_last_name, user_email } = this.state.userName;
+        const { user_first_name, user_last_name, user_email } = this.props.user;
         // const address { address_number, address_street, address_city, address_state, address_zip } = this.props.addresses;
 
         // console.log("data",)
@@ -156,23 +157,21 @@ class AccountInformation extends Component {
             <div className='account-information'>
                 <PageTitle className='account-information__title' title='Account & Information' />
                 <div className='account-information__user'>
-                    <AccountInformationItem className='account-information__user-data-name' title='Name' value={user_first_name} valueTwo={user_last_name} link='user/name' />
-                    <AccountInformationItem className='account-information__user-data-email' title='Email' value={user_email} link='user/email' />
+                    <AccountInformationItem className='account-information__user-data-name' title='Name' value={user_first_name} valueTwo={user_last_name} link='account/name' />
+                    <AccountInformationItem className='account-information__user-data-email' title='Email' value={user_email} />
 
                 </div>
 
 
                 <div className='account-information__address'>
                     {this.renderAddress()}
-                    {/* <AccountInformationAddress className='account-information__address-data' title='Address' number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} link='user/address' /> */}
                 </div>
+
                 <hr />
                 <div className='account-information__passwords'>
                     <AccountInformationFormPassword title='Password' className='account-information__passwords-form' />
                 </div>
-                {/* <div> 
-                    <AccountInformationForm onSubmit={this.onSubmit} required={this.required} />
-                </div> */}
+
 
                 <Footer className='account-information__footer' />
             </div>
@@ -181,8 +180,10 @@ class AccountInformation extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log("state", state)
     return {
-        addresses: state.addresses
+        addresses: state.user.addresses,
+        user: state.user.user
     }
 }
 

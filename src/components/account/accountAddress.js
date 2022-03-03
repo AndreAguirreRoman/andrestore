@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-class AccountInformationAddress extends Component {
+class AccountAddress extends Component {
     render() {
         const { className, title, number, street, city, state, zip, link } = this.props;
         return (
@@ -24,5 +24,5 @@ class AccountInformationAddress extends Component {
     }
 }
 
-export default AccountInformationAddress;
+export default AccountAddress;
 

@@ -14,7 +14,11 @@ import {
     deleteProduct,
     deleteAllProducts,
     fetchUserName,
-    purchase
+    purchase,
+    fetchAddressToEdit,
+    editAddress,
+    editName,
+    editUserName
 } from './user';
 
 import {
@@ -48,5 +52,9 @@ export {
     deleteProduct,
     deleteAllProducts,
     fetchUserName,
-    purchase
+    purchase,
+    fetchAddressToEdit,
+    editAddress,
+    editName,
+    editUserName
 }

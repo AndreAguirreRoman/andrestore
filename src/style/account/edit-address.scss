@@ -1,0 +1,20 @@
+.edit-address-form {
+	margin-top: 40px;
+	grid-column: s/e;
+	grid-row: content-s/content-e;
+
+	&__buttons {
+		width: 440px;
+		display: flex;
+		margin-top: 20px;
+		justify-content: space-around;
+		.update {
+			@include buttons;
+			width: 200px;
+		}
+		.back {
+			@include buttons;
+			width: 200px;
+		}
+	}
+}

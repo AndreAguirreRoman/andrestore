@@ -37,6 +37,8 @@ import AddressPage from "./components/account/addressPage";
 import Results from "./components/pages/results";
 import Order from "./components/order/orderReview";
 import Checkout from './components/order/checkout';
+import AddressEdit from "./components/account/addressEdit";
+import NameEdit from "./components/account/nameEdit";
 
 function main() {
   ReactDOM.render(
@@ -59,10 +61,14 @@ function main() {
             <Route path='/products/upload' exact component={Products} />
             <Route exact path="/product/:slug" exact component={ProductDetail} />
             <Route path='/account' exact component={AccountInformation} />
+            <Route path='/account/address' exact component={AddressPage} />
+            <Route path='/account/address/edit' exact component={AddressEdit} />
+            <Route path='/account/name' exact component={NameEdit} />
+
             <Route path='/orders' exact component={PurchaseHistory} />
             <Route path='/order/review' exact component={Order} />
             <Route path='/order/review/bill' exact component={Checkout} />
-            <Route path='/account/address' exact component={AddressPage} />
+
             <Route path='/products/search' exact component={Results} />
 
           </Switch>

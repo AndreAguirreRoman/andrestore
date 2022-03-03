@@ -5,12 +5,72 @@
 	row-gap: 100px;
 	grid-row: content-s/content-e;
 	grid-column: extra-s/extra-e;
+
+	&__shopcart {
+		transform: translateX(
+				960px
+			)
+			translateY(-600px);
+	}
 	&__wrapper {
 		grid-row: wrapper-s/wrapper-e;
 		grid-column: s/e;
 		display: grid;
 		grid-template-rows: [heading-s] 30px[heading-e render-s] 1fr[render-e footer-s] 10px[footer-e];
 		grid-template-columns: 100px[images-s]1.8fr[images-e content-s]2fr[content-e payment-form-s] 1fr[payment-form-e]30px;
+
+		@media screen and (max-width: 390px) {
+			grid-template-rows: [heading-s] 30px[heading-e images-s].5fr [images-e render-s] 1fr[render-e footer-s] 10px[footer-e];
+			grid-template-columns: [s]1fr[e];
+			.product-render__wrapper-information-price {
+				padding-bottom: 100px;
+			}
+			.product-render__wrapper-gallery {
+				grid-row: images-s/images-e;
+				grid-column: s/e;
+				padding-left: 40px;
+			}
+			.product-render__wrapper-information {
+				grid-row: render-s/render-e;
+				grid-column: s/e;
+				grid-template-rows: [title-s]60px[title-e description-s]1fr[description-e footer-s]130px[footer-e];
+				&-brand,
+				&-name,
+				&-description,
+				&-price {
+					font-size: 4rem;
+					padding-left: 40px;
+				}
+
+				&-name {
+					transform: translateX(
+							600px
+						)
+						translateY(-280px);
+					font-size: 6rem;
+					width: 350px;
+				}
+				&-brand {
+					transform: translateX(
+							600px
+						)
+						translateY(-290px);
+					width: 350px;
+				}
+
+				&-price {
+					padding-top: 30px;
+					padding-bottom: 100px;
+				}
+
+				&-cart {
+					width: 600px;
+					height: 100px;
+					font-size: 4rem;
+					margin-left: 240px;
+				}
+			}
+		}
 		&-gallery {
 			grid-row: render-s/render-e;
 			grid-column: images-s/images-e;
@@ -39,13 +99,35 @@
 				grid-column: s/e;
 				grid-row: description-s/description-e;
 			}
-			&-footer {
-				display: flex;
-				width: 80%;
-				justify-self: center;
-				background-color: blue;
-				grid-column: s/e;
-				grid-row: footer-s/footer-e;
+
+			&-price {
+				display: grid;
+				font-size: 1.5rem;
+			}
+			&-cart {
+				margin-top: 40px;
+				height: 38px;
+				width: 280px;
+				border-radius: 5px;
+				background-color: $light-blue;
+				border: none;
+				font-family: 'Glory';
+				transition: all 0.4s
+					ease-out;
+				cursor: pointer;
+				&:hover {
+					background-color: $main-blue;
+				}
+				&:active {
+					background-color: $button;
+				}
+
+				font-size: 16px;
+				color: white;
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 	}

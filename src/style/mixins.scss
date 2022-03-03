@@ -8,3 +8,33 @@
 		color: $light-blue;
 	}
 }
+
+@mixin buttons {
+	height: 38px;
+	width: 280px;
+	border-radius: 5px;
+	background-color: $light-blue;
+	border: none;
+	font-family: 'Glory';
+	transition: all 0.4s
+		ease-out;
+	cursor: pointer;
+	&:hover {
+		background-color: $main-blue;
+	}
+	&:active {
+		background-color: $button;
+	}
+
+	font-size: 16px;
+	color: white;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin screen {
+	@media screen and (min-width: 390px) {
+	}
+}

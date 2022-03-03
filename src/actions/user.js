@@ -9,7 +9,10 @@ import {
     DELETE_PRODUCT,
     DELETE_ALL_PRODUCTS,
     FETCH_USER_NAME,
-    MAKE_PURCHASE
+    MAKE_PURCHASE,
+    ADDRESS_EDIT,
+    EDIT_ADDRESS,
+    EDIT_NAME
 } from './types';
 
 
@@ -53,6 +56,36 @@ export function purchase(fields) {
         payload: fields
     })
 }
+export function editAddress(fields) {
+    const data = fields
+    return function (dispatch) {
+        axios.put('https://andreaguirre.herokuapp.com/user/address/1', data)
+            .then(res => {
+                dispatch({
+                    type: EDIT_ADDRESS,
+                    payload: fields
+                })
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+}
+export function editName(fields) {
+    const data = fields
+    return function (dispatch) {
+        axios.put('https://andreaguirre.herokuapp.com/user/1', data)
+            .then(res => {
+                dispatch({
+                    type: EDIT_NAME,
+                    payload: data
+                })
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+}
 
 
 export function getAddress() {
@@ -70,6 +103,7 @@ export function getAddress() {
     }
 }
 
+
 export function fetchUserName() {
     return function (dispatch) {
         axios.get('https://andreaguirre.herokuapp.com/user/1')
@@ -79,6 +113,21 @@ export function fetchUserName() {
                     payload: response.data
                 })
             }).catch(error => {
+                console.log(error)
+            })
+    }
+}
+
+export function fetchAddressToEdit() {
+    return function (dispatch) {
+        axios.get('https://andreaguirre.herokuapp.com/user/address/1')
+            .then(response => {
+                dispatch({
+                    type: ADDRESS_EDIT,
+                    payload: response.data
+                })
+            })
+            .catch(error => {
                 console.log(error)
             })
     }

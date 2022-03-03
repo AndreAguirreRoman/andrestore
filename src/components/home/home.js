@@ -46,7 +46,7 @@ class Home extends Component {
                 _id: 0,
                 title: <div className='header-icon'>
                     <div className='header-icon__icon'><i className="fas fa-user-circle" ></i></div>
-                    <div className='header-icon__text'>Account & Information</div>
+                    <p className='header-icon__text'>Account & Information</p>
                 </div>,
                 active: false,
                 path: '/account'

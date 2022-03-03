@@ -15,28 +15,30 @@ export default class CarouselPage extends Component {
     render() {
         const { className } = this.props;
         return (
-            <Carousel className='carousel-container' infiniteLoop={true} autoPlay={true} interval={4000} showThumbs={false} >
-                <div className='carousel-container__item'>
-                    <img src='../../../static/assets/images/prueba1.jpg' />
+            <div className='carousel'>
+                <Carousel className='carousel-container' infiniteLoop={true} autoPlay={true} interval={4000} showThumbs={false} >
+                    <div className='carousel-container__item'>
+                        <img src='../../../static/assets/images/prueba1.jpg' />
 
-                </div>
+                    </div>
 
-                <div className='carousel-container__item'>
-                    <img src='../../../static/assets/images/prueba2.jpg' />
-                    {/* <p className="carousel-container__text legend" style={customs}>Samsung</p> */}
-                </div>
+                    <div className='carousel-container__item'>
+                        <img src='../../../static/assets/images/prueba2.jpg' />
+                        {/* <p className="carousel-container__text legend" style={customs}>Samsung</p> */}
+                    </div>
 
-                <div>
-                    <img src='../../../static/assets/images/prueba3.jpg' />
-                </div>
-                <div>
-                    <img src='../../../static/assets/images/prueba4.jpg' />
-                </div>
-                <div>
-                    <img src='../../../static/assets/images/prueba5.jpg' />
-                </div>
+                    <div>
+                        <img src='../../../static/assets/images/prueba3.jpg' />
+                    </div>
+                    <div>
+                        <img src='../../../static/assets/images/prueba4.jpg' />
+                    </div>
+                    <div>
+                        <img src='../../../static/assets/images/prueba5.jpg' />
+                    </div>
 
-            </Carousel >
+                </Carousel >
+            </div>
         );
     }
 }

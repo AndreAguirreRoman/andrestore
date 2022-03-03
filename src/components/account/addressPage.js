@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import { reduxForm, Field } from 'redux-form';
+import * as actions from '../../actions';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-import { FormInput, FormButton } from '../formFields';
-import AddressPageForm from './addressPageForm';
-import AccountInformationAddressDelete from './accountInformationAddressDelete';
+
+import AccountAddressDelete from './accountAddressDelete';
 import PageTitle from '../pageTitle';
 
 
@@ -14,31 +14,19 @@ class AddressPage extends Component {
     constructor() {
         super()
         this.state = {
-            addresses: {},
             showAddress: true
         }
 
         this.deleteAddress = this.deleteAddress.bind(this)
     }
 
-
-
-    getAddresses() {
-        axios.get("https://andreaguirre.herokuapp.com/user/address/2")
-            .then(response => {
-                this.setState({
-                    addresses: { ...response.data }
-                })
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-
+    componentDidMount() {
+        this.props.getAddress();
     }
 
+
     deleteAddress() {
-        axios.delete("https://andreaguirre.herokuapp.com/user/address/2").then(response => {
+        axios.delete("https://andreaguirre.herokuapp.com/user/address/1").then(response => {
             console.log("res", response)
         }).catch(error => {
             console.log("error", error)
@@ -47,24 +35,17 @@ class AddressPage extends Component {
         this.setState({ showAddress: false })
     }
 
-    componentDidMount() {
-
-        this.getAddresses();
-    }
-
-
-
     render() {
-        const { address_number, address_street, address_city, address_state, address_zip } = this.state.addresses;
-        const { className, handleSubmit } = this.props;
+        const { address_number, address_street, address_city, address_state, address_zip } = this.props.addresses;
+
 
         return (
-            <div className='address'>
+            <div className={`address-edit`}>
                 <PageTitle title={'Your address'} />
 
                 {
-                    this.state.showAddress ?
-                        <AccountInformationAddressDelete className='account-information__address-data' onClick={this.deleteAddress} number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} /> : <div>You don't have an address</div>}
+                    this.props.addresses ?
+                        <AccountAddressDelete className='account-information__address-data' onClick={this.deleteAddress} number={address_number} street={address_street} city={address_city} state={address_state} zip={address_zip} /> : <div>You don't have an address</div>}
             </div >
 
         )
@@ -116,6 +97,10 @@ class AddressPage extends Component {
 //   keepDirtyOnReinitialize: true
 // })
 
+function mapStateToProps(state) {
+    return state.user
+}
 
+AddressPage = connect(mapStateToProps, actions)(AddressPage)
 
 export default AddressPage;

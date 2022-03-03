@@ -1,8 +1,33 @@
 .all-products__wrapper {
 	width: 191px;
+
+	@media screen and (max-width: 390px) {
+		width: 382px;
+	}
 }
 
 .product-design-item {
+	@media screen and (max-width: 390px) {
+		width: 382px;
+
+		.product-design-item__main-item-wrapper__info {
+			height: 80px;
+			&-brand,
+			&-price {
+				font-size: 3rem;
+				height: 40px;
+			}
+			&-cart i {
+				font-size: 4rem;
+			}
+		}
+
+		.product-design-item__main-item-wrapper__img
+			img {
+			width: 382px;
+		}
+	}
+
 	width: 191px;
 	padding-left: 22px;
 	padding-bottom: 22px;

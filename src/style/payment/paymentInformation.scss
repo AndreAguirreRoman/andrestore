@@ -27,6 +27,33 @@
 	border-radius: 10px;
 	width: 100%;
 
+	@media screen and (max-width: 390px) {
+		height: 210px;
+
+		.payment-wrapper__section {
+			height: 210px;
+			&-info {
+				&-text {
+					font-size: 1.5rem;
+					padding-left: 30px;
+					width: 150px;
+					&-one {
+						padding-left: 20px;
+						padding-bottom: 10px;
+					}
+				}
+			}
+			&-visa,
+			&-master,
+			&-amex,
+			&-discover {
+				&-icon i {
+					font-size: 10rem;
+				}
+			}
+		}
+	}
+
 	&__section {
 		display: flex;
 		align-items: center;

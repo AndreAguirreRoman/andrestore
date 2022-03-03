@@ -5,6 +5,7 @@ import * as actions from '../actions';
 import axios from 'axios';
 import Gallery from 'react-amazon-gallery';
 import Footer from '../components/footer';
+import ShopCart from '../components/cart/shopCart';
 
 
 let images = [
@@ -119,13 +120,21 @@ class ProductDetail extends Component {
         this.getProductItem();
     }
 
+    handleAddToCart = () => {
+        this.props.addProduct(this.state.productItem)
+        if (document.getElementById('shop-cart').classList.contains('cart-hidden')) {
+            document.getElementById('shop-cart').classList.remove('cart-hidden');
+        }
+    }
+
 
     render() {
         const { product_brand, product_name, product_description, product_price } = this.state.productItem;
         // console.log("currentId", this.state.productId)
-        // console.log("state", this.state.productItem)
+        console.log("state", this.state.productItem)
         return (
             <div className='product-render'>
+                <ShopCart className='product-render__shopcart' />
                 <div className='product-render__wrapper'>
 
 
@@ -138,8 +147,13 @@ class ProductDetail extends Component {
                         <h2 className='product-render__wrapper-information-name'>{product_name}</h2>
 
                         <p className='product-render__wrapper-information-description'>{product_description}</p>
-                        <div className='product-render__wrapper-information-footer'>{product_price}</div>
+                        <div className='product-render__wrapper-information-price'>
+                            <p className='product'>Price: ${product_price}</p>
+                            <p className='product'> Shipping: <b>FREE</b></p>
+                        </div>
+                        <button onClick={this.handleAddToCart} className='product-render__wrapper-information-cart'>Add to Cart</button>
                     </div>
+
 
 
 

@@ -11,7 +11,10 @@ export const FILTER_PRODUCTS_WITH_QUERY = 'FILTER_PRODUCTS_WITH_QUERY';
 
 export const ADD_USER = 'ADD_USER';
 export const FETCH_USER_ADDRESS = 'FETCH_USER_ADDRESS';
-
+export const ADDRESS_EDIT = 'ADDRESS_EDIT';
+export const EDIT_ADDRESS = 'EDIT_ADDRESS';
+export const EDIT_NAME = 'EDIT_NAME';
+export const EDIT_USER_NAME = 'EDIT_USER_NAME';
 //USER'S CART
 
 export const ADD_PRODUCT = 'ADD_PRODUCT';

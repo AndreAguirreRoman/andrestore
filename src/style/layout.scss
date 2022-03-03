@@ -11,4 +11,9 @@
 			250px
 		)
 		[extra-e];
+	@media screen and (max-width: 390px) {
+		display: grid;
+		grid-template-columns: [extra-s]20px[s]1fr[e]20px[extra-e];
+		grid-template-rows: [header-s] 130px [header-e nav-s] 70px [nav-e content-s] 1fr [content-e];
+	}
 }

@@ -11,6 +11,9 @@
 			210px
 		)
 		[extra-e];
+	@media screen and (max-width: 390px) {
+		grid-template-columns: [extra-s]20px[s]1fr[e]20px[extra-e];
+	}
 	grid-row: content-s/content-e;
 	grid-column: extra-s/extra-e;
 
@@ -40,6 +43,12 @@
 		// }
 	}
 	&__footer {
+		@media screen and (max-width: 390px) {
+			font-size: 3rem;
+			.footer__copyright {
+				padding-bottom: 50px;
+			}
+		}
 		padding-top: 60px;
 		padding-bottom: 50px;
 		grid-row: footer-home-s/footer-home-e;

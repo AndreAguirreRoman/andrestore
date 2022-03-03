@@ -7,6 +7,11 @@
 		width: 940px;
 		padding-left: 22px;
 		justify-content: start;
+
+		@media screen and (max-width: 390px) {
+			padding-left: 90px;
+			font-size: 5rem;
+		}
 	}
 
 	&__cart {
@@ -28,6 +33,11 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 
+	@media screen and (max-width: 390px) {
+		grid-template-columns: 1fr 1fr;
+		padding-left: 70px;
+		margin-bottom: 400px;
+	}
 	&__wrapper-item {
 		padding-left: 22px;
 		padding-bottom: 22px;
@@ -43,6 +53,9 @@
 			#1687d933;
 	}
 
+	@media screen and (max-width: 390px) {
+		padding-bottom: 50px;
+	}
 	&-item {
 		text-decoration: none;
 		color: $main-black;
