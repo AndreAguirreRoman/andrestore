@@ -12,7 +12,7 @@ class Footer extends Component {
                     <a className='footer__links-link' onClick={() => console.log('Legal info?')}>Legal </a>
                 </div>
                 <div className='footer__copyright'>
-                    &copy; 2021 Andre &#124; All rights reserved.
+                    &copy; 2021 Andre &#124;   All rights reserved.
                 </div>
             </div>
         )
