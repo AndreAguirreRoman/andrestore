@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    port: process.env.PORT || 3000
-
+    host: 'localhost',
+    port: 3000
   }
 };
