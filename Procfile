@@ -1,1 +1,1 @@
-web: node ./src/bootstrap.js
+web: node index.js
