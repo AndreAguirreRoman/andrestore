@@ -80,6 +80,7 @@
 		"redux-form": "^8.3.7",
 		"redux-thunk": "^2.4.1",
 		"sass-loader": "^10.0.0",
+		"serve": "^13.0.2",
 		"simple-slider": "^1.0.1",
 		"style-loader": "^0.21.0",
 		"tar": "^6.0.0",
