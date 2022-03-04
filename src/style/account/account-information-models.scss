@@ -76,6 +76,17 @@
 	&__wrapper-data {
 		display: flex;
 		width: 940px;
+		@media screen and (max-width: 390px) {
+			height: 140px;
+			.account-addresses__wrapper-data {
+				&__info {
+					&-street,
+					&-state {
+						font-size: 5rem;
+					}
+				}
+			}
+		}
 		&__info {
 			background-color: $off-white;
 			border-radius: 7px;
