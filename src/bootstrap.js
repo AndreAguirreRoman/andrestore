@@ -59,7 +59,7 @@ function main() {
             <Route path='/signup' exact component={SignUp} />
             <Route path='/signup/user' exact component={User} />
             <Route path='/products/upload' exact component={Products} />
-            <Route exact path="/product/:slug" exact component={ProductDetail} />
+            <Route path="/product/:slug" exact component={ProductDetail} />
             <Route path='/account' exact component={AccountInformation} />
             <Route path='/account/address' exact component={AddressPage} />
             <Route path='/account/address/edit' exact component={AddressEdit} />
